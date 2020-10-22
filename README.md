@@ -12,5 +12,10 @@ first student
 
  first student bat7
 # project0_0
-love
+<<<<<<< HEAD
 bbbb
+=======
+love
+>>>>>>> 77363e48f6b52e1aee89c03c270649b06567297c
+love you tooo
+hiiiii
