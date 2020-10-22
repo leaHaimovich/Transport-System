@@ -10,7 +10,7 @@ namespace doNet_0787
     {
         static partial void Welcome5626()
         {
-            Console.WriteLine("hi i am here too");
+            Console.WriteLine("hjgjhgjg");
         }
     }
 }
