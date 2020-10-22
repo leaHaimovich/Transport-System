@@ -10,7 +10,18 @@ namespace doNet5781_0787_5626
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("batsava");
+           
+            welcome5626();
+            Console.ReadKey();
+
         }
+
+        private static void welcome5626()
+        {
+            Console.WriteLine("Enter your name:");
+            String name = Console.ReadLine();
+            Console.WriteLine("{0}, welcome to my first console application", name);
+        }
+
     }
 }
