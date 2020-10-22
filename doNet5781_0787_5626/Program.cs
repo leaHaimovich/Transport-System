@@ -10,6 +10,7 @@ namespace doNet5781_0787_5626
     {
         static void Main(string[] args)
         {
+            Console.WriteLine();
         }
     }
 }
