@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E0980CF5-DF7D-4FD6-92B0-6005ADD9FCA3}</ProjectGuid>
+    <ProjectGuid>{EBC9428F-BA1E-48AA-BB58-B43DCD8B56B9}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>doNet5781_0787_5626</RootNamespace>
-    <AssemblyName>doNet5781_0787_5626</AssemblyName>
+    <RootNamespace>doNet_0787</RootNamespace>
+    <AssemblyName>doNet_0787</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,7 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Program0787.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
