@@ -13,6 +13,7 @@ namespace doNet5781_00_0787_5626
             Welcome0787();
             Welcome5626();
             Console.ReadKey();
+            Console.WriteLine("hi batshi1");
         }
         static partial void Welcome5626();//batchi function
 
