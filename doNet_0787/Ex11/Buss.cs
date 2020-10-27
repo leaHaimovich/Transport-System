@@ -8,7 +8,8 @@ namespace Ex11
 {
     class Buss
     {
-        string licenseNumber;
-  
+        string licenseNumber;//לוחית רישוי
+        DateTime firstUseDate;// the date of the first use
+
     }
 }
