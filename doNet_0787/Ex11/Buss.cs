@@ -10,6 +10,6 @@ namespace Ex11
     {
         string licenseNumber;//לוחית רישוי
         DateTime firstUseDate;// the date of the first use
-
+        int j;
     }
 }
