@@ -11,5 +11,6 @@ namespace Ex11
         string licenseNumber;//לוחית רישוי
         DateTime firstUseDate;// the date of the first use
         double km;
+        double kmafterRefueling;//קילומטר נסיעה מאז התידלוק האחרון
     }
 }
