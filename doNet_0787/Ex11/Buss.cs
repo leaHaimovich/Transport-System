@@ -10,10 +10,18 @@ class Buss
 {
     string licenseNumber;//לוחית רישוי
     DateTime firstUseDate;// תאריך שימוש ראשון 
+    DateTime lastTreat;
     double km;
     double kmafterRefueling;//קילומטר נסיעה מאז התידלוק האחרון
     double kmFromLastTreat;
 
+
+
+    public DateTime LastTreat
+    {
+        get { return lastTreat; }
+        set => lastTreat = value;
+    }
     public string LicenseNumber
     {
         get { return licenseNumber; }
