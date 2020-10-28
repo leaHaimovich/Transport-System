@@ -44,7 +44,7 @@ namespace Ex11
             int r = (int)s.KmafterRefueling;
             if ((e + kiml) >= 20000)
                                      {
-                                        Console.WriteLine("ERROR: cant go, need a treatment");
+                                        Console.WriteLine("ERROR: cant go, need a treatment/t");
                                        return false; }
             if ((r + kiml) > 1200) {
                                       Console.WriteLine(  "ERROR: cant go, need to refueling");
