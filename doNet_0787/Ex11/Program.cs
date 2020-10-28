@@ -12,5 +12,11 @@ namespace Ex11
         {
             List<Buss> list = new List<Buss>();//רשימת האוטובוסים
         }
+        public enum choice
+        {
+            insert, licenseNumbers, fulling, show, end
+
+        }
     }
 }
+
