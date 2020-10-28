@@ -16,7 +16,7 @@ namespace Ex11
         public static bool CheckLicenseNumber(string lpn)
         {
             int size = lpn.Length;
-            if (size != 7 || size != 8)//אם הלוחית רישוי בגודל תקין
+            if (size != 7 && size != 8)//אם הלוחית רישוי בגודל תקין
             {
                 Console.WriteLine("ERROR: the license Number is Illegal");
                 return false;
