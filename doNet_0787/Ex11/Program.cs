@@ -10,6 +10,7 @@ namespace Ex11
     {
         static void Main(string[] args)
         {
+            List<Buss> list = new List<Buss>();//רשימת האוטובוסים
         }
     }
 }
