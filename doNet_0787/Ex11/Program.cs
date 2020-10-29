@@ -7,20 +7,28 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Xml.XPath;
 
 namespace Ex11
 {
     class Program
     {
 
-        public static bool CheckLicenseNumber(string lpn)
+        public static bool CheckLicenseNumber(string lpn, List<Buss> listBuss)
         {
             int size = lpn.Length;
             if (size != 7 && size != 8)//אם הלוחית רישוי בגודל תקין
             {
                 Console.WriteLine("ERROR: the license Number is Illegal");
                 return false;
+                bool degel = false;
+                foreach (Buss buss in listBuss)
+                {
+                    if (buss.LicenseNumber == lpn) degel = true;
+                }
+                if (degel) Console.WriteLine("ERROR: the bus already exist\n");
+                return false;
+
             }
             return true;
         }
@@ -74,17 +82,17 @@ namespace Ex11
                     r = (int)buss.KmafterRefueling;
                     if ((e + k1) >= 20000)
                     {
-                        Console.WriteLine("ERROR: cant go, need a treatment");
+                        Console.WriteLine("ERROR: cant go, need a treatment\n");
                         return false;
                     }
                     if ((r + k1) > 1200)
                     {
-                        Console.WriteLine("ERROR: cant go, need to refueling");
+                        Console.WriteLine("ERROR: cant go, need to refueling\n");
                         return false;
                     }
                     if(buss.LastTreat.Year> DateTime.Now.Year)
                     {
-                        Console.WriteLine("ERROR: need to go to treatment, over a year");
+                        Console.WriteLine("ERROR: need to go to treatment, over a year\n");
                         return false;
                     }
                    buss.Km += (int)k1;
@@ -127,9 +135,23 @@ namespace Ex11
         {
             foreach (Buss buss in listBuss)//goung thro all busses
             {                 
-                    Console.WriteLine($"license Number:{buss.LicenseNumber}");
-                    Console.WriteLine($"General travel:{buss.Km}");
-                    Console.WriteLine($"General travel then last treatment:{buss.kMFromLastTreat}");
+                    //Console.WriteLine($"license Number:  {buss.LicenseNumber}");
+                if (buss.LicenseNumber.Length == 7)
+                { Console.WriteLine("license Number: " + buss.LicenseNumber.Substring(0, 2) + "-" + buss.LicenseNumber.Substring(3, 3) + "-" + buss.LicenseNumber.Substring(5, 2));
+                    //Console.WriteLine("-");
+                  
+                    
+                }
+                if(buss.LicenseNumber.Length == 8)
+                {
+                    Console.WriteLine("license Number: " + buss.LicenseNumber.Substring(0, 3)+ "-" + buss.LicenseNumber.Substring(3, 2) +  "-" + buss.LicenseNumber.Substring(5, 3));
+                    //Console.WriteLine(buss.LicenseNumber.Substring(3, 2)+"-");
+                    //Console.WriteLine(buss.LicenseNumber.Substring(6, 3));
+
+                }
+
+                    Console.WriteLine($"General travel:  {buss.Km}");
+                    Console.WriteLine($"General travel then last treatment:  {buss.kMFromLastTreat}\n");
 
                 
             }
@@ -141,12 +163,12 @@ namespace Ex11
             char ch;
             do
             {
-                Console.WriteLine("Choose one of the following:");
+                Console.WriteLine("\nChoose one of the following:");
                 Console.WriteLine("a: to add new bus to the company");//הןספת אוטובוס לחברה
                 Console.WriteLine("b: to choose a buss for a ride");//בחירת אואטובוס לנסיעה
                 Console.WriteLine("t: for tret or Refueling");//תידלוק או טיפול
-                Console.WriteLine("k:Traveled since the last treatment");
-                Console.WriteLine("e: to Exit");
+                Console.WriteLine("p:Traveled since the last treatment");
+                Console.WriteLine("e: to Exit\n");
                 ch = char.Parse(Console.ReadLine());
             
 
@@ -154,22 +176,23 @@ namespace Ex11
             string lpn;
             DateTime t;
 
-            switch (ch)
-            {
-                case 'a':
-                    Console.WriteLine("Enter license plate number and start date of activity");
-                    lpn = Console.ReadLine();
-                    if(!CheckLicenseNumber(lpn))break;
+                switch (ch)
+                {
+                    case 'a':
+                        Console.WriteLine("Enter license plate number  ");
+                        lpn = Console.ReadLine();
+                        if (!CheckLicenseNumber(lpn, listBuss)) break;
                         Console.WriteLine("Enter start date of activity as follows: 12 Juni 2008(day month year) ");
-                        string dateString= Console.ReadLine();
+                        string dateString = Console.ReadLine();
+                        DateTime dTime; bool check = DateTime.TryParse(dateString, out dTime);
+                        if (!check) { Console.WriteLine("ERROR: the date wrong"); break; }
                         var cultureInfo = new CultureInfo("de-DE");
-                        //string dateString = "12 Juni 2008";
                         var dateTime = DateTime.Parse(dateString, cultureInfo);
-                        Console.WriteLine(dateTime);
+                        if (dateTime > DateTime.Now) {Console.WriteLine("ERROR: the date is wrong"); break; }
                         // The example displays the following output:
                         //       6/12/2008 00:00:00
-                        //bool check = DateTime.TryParse(Console.ReadLine(), out t);
-                    Buss newBus1 = new Buss(lpn, dateTime);
+                        if (lpn.Length == 8 && dateTime.Year < 2018) { Console.WriteLine("ERROR: license plate number not mutch the start date of activity");break; }
+                        Buss newBus1 = new Buss(lpn, dateTime);
                     listBuss.Add(newBus1);
                     break;
 
@@ -193,10 +216,11 @@ namespace Ex11
                         if (n == 2) { tretment(lpn, listBuss); }
                         
                         break;
-                case 'k': printBusses(listBuss);
+                case 'p': printBusses(listBuss);
 
                     break;
-                case 'e':
+                    case 'e':
+                        Console.WriteLine("BYE BYE");
                     break;
 
                     default: Console.WriteLine("ERROR");break;
