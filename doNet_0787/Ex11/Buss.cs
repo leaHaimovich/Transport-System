@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 class Buss
 {
-    string licenseNumber;//לוחית רישוי
-    DateTime firstUseDate;// תאריך שימוש ראשון 
-    DateTime lastTreat;
-    double km;
-    double kmafterRefueling;//קילומטר נסיעה מאז התידלוק האחרון
-    double kmFromLastTreat;
+    private string licenseNumber;//לוחית רישוי
+    private DateTime firstUseDate;// תאריך שימוש ראשון 
+    private DateTime lastTreat;
+    private double km;
+    private double kmafterRefueling;//קילומטר נסיעה מאז התידלוק האחרון
+    private double kmFromLastTreat;
 
 
 
