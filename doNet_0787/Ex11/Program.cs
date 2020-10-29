@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -159,8 +160,16 @@ namespace Ex11
                     Console.WriteLine("Enter license plate number and start date of activity");
                     lpn = Console.ReadLine();
                     if(!CheckLicenseNumber(lpn))break;
-                    bool check = DateTime.TryParse(Console.ReadLine(), out t);
-                    Buss newBus1 = new Buss(lpn,t);
+                        Console.WriteLine("Enter start date of activity as follows: 12 Juni 2008(day month year) ");
+                        string dateString= Console.ReadLine();
+                        var cultureInfo = new CultureInfo("de-DE");
+                        //string dateString = "12 Juni 2008";
+                        var dateTime = DateTime.Parse(dateString, cultureInfo);
+                        Console.WriteLine(dateTime);
+                        // The example displays the following output:
+                        //       6/12/2008 00:00:00
+                        //bool check = DateTime.TryParse(Console.ReadLine(), out t);
+                    Buss newBus1 = new Buss(lpn, dateTime);
                     listBuss.Add(newBus1);
                     break;
 
@@ -189,6 +198,8 @@ namespace Ex11
                     break;
                 case 'e':
                     break;
+
+                    default: Console.WriteLine("ERROR");break;
             }
             } while (ch != 'e');
 

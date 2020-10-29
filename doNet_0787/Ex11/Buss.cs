@@ -47,10 +47,10 @@ class Buss
 
     }
     // List<Buss> Buslist = new List<Buss>();//רשימת האוטובוסים
-    public Buss(string lpn,DateTime t)
+    public Buss(string lpn,DateTime t)//constractor with parameters
     {
         licenseNumber = lpn;
         firstUseDate = t;
     }
-    public Buss() { }
+    public Buss() { }//constractor
 }
