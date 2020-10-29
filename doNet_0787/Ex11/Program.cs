@@ -188,16 +188,18 @@ namespace Ex11
                         if (!check) { Console.WriteLine("ERROR: the date wrong"); break; }
                         var cultureInfo = new CultureInfo("de-DE");
                         var dateTime = DateTime.Parse(dateString, cultureInfo);
-                        if (dateTime > DateTime.Now) {Console.WriteLine("ERROR: the date is wrong"); break; }
+                        if (dateTime > DateTime.Now) { Console.WriteLine("ERROR: the date is wrong"); break; }
                         // The example displays the following output:
                         //       6/12/2008 00:00:00
-                        if (lpn.Length == 8 && dateTime.Year < 2018) { Console.WriteLine("ERROR: license plate number not mutch the start date of activity");break; }
+                        if (lpn.Length == 8 && dateTime.Year < 2018) { Console.WriteLine("ERROR: license plate number not mutch the start date of activity"); break; }
                         Buss newBus1 = new Buss(lpn, dateTime);
-                    listBuss.Add(newBus1);
-                    break;
+                        listBuss.Add(newBus1);
+                        break;
 
 
-                case 'b':
+                    case 'b':
+                        bool isEmpty = !listBuss.Any();
+                        if (isEmpty){ Console.WriteLine("there os n busses yet"); break; }
                     Console.WriteLine("Enter license plate number of the needed buss");
                     lpn=Console.ReadLine();
                         if (!isExist(lpn,listBuss))break ;// בודק האם האוטובוס נמצא
@@ -207,6 +209,8 @@ namespace Ex11
 
 
                 case 't':
+                        bool iEmpty = !listBuss.Any();
+                        if (iEmpty) { Console.WriteLine("there os n busses yet"); break; }
                         Console.WriteLine("Enter license plate number");
                         lpn = Console.ReadLine();
                         if (!isExist(lpn, listBuss)) break;// בודק האם האוטובוס נמצא
@@ -216,7 +220,10 @@ namespace Ex11
                         if (n == 2) { tretment(lpn, listBuss); }
                         
                         break;
-                case 'p': printBusses(listBuss);
+                case 'p':
+                        bool isEmpt = !listBuss.Any();
+                        if (isEmpt) { Console.WriteLine("there os n busses yet"); break; }
+                        printBusses(listBuss);
 
                     break;
                     case 'e':
