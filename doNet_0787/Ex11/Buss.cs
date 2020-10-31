@@ -14,7 +14,7 @@ class Buss
     private double km;
     private double kmafterRefueling;//קילומטר נסיעה מאז התידלוק האחרון
     private double kmFromLastTreat;
-
+    int f;
 
 
     public DateTime LastTreat
