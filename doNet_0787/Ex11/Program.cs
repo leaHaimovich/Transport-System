@@ -89,7 +89,7 @@ namespace Ex11
                 {
                     e = (int)buss.kMFromLastTreat;
                     r = (int)buss.KmafterRefueling;
-                    if ((e + k1) >= 20000 || (buss.LastTreat.Year + 1 ) > DateTime.Now.Year)
+                    if ((e + k1) >= 20000 || (buss.LastTreat.Year + 1 ) < DateTime.Now.Year)
                     {
                         Console.WriteLine("ERROR: cant go, need a treatment\n");
                         return false;
