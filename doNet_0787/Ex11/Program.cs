@@ -1,4 +1,7 @@
-﻿using System;
+﻿/*Lea haimovich 324240787
+ * Bat sheva cohen 211735626
+ */
+using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Data;
@@ -22,8 +25,8 @@ namespace Ex11
             {
                 Console.WriteLine("ERROR: the license Number is Illegal");
                 return false;
-                
 
+                
             }
             bool degel = false;
             foreach (Buss buss in listBuss)
