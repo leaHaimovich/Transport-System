@@ -33,8 +33,11 @@ namespace Ex11
             {
                 if (buss.LicenseNumber == lpn) degel = true;
             }
-            if (degel) Console.WriteLine("ERROR: the bus already exist\n");
-            return false;
+            if (degel)
+            {
+                Console.WriteLine("ERROR: the bus already exist\n");
+                return false;
+            }
 
             return true;
         }
