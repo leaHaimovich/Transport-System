@@ -22,15 +22,17 @@ namespace Ex11
             {
                 Console.WriteLine("ERROR: the license Number is Illegal");
                 return false;
-                bool degel = false;
-                foreach (Buss buss in listBuss)
-                {
-                    if (buss.LicenseNumber == lpn) degel = true;
-                }
-                if (degel) Console.WriteLine("ERROR: the bus already exist\n");
-                return false;
+                
 
             }
+            bool degel = false;
+            foreach (Buss buss in listBuss)
+            {
+                if (buss.LicenseNumber == lpn) degel = true;
+            }
+            if (degel) Console.WriteLine("ERROR: the bus already exist\n");
+            return false;
+
             return true;
         }
               
