@@ -74,13 +74,13 @@ namespace Ex2
         public int LastStation;
         public area Area;
 
-        //Bus_Line()
-        //{
-        //    Stations = new List<BusLineStation>();
-        //}
+        public Bus_Line()
+        {
+            Stations = new List<BusLineStation>();
+        }
         public override string ToString()
         {
-            string str1 = "Bus Line: " + BusLine + "Area: " + Area + " list station from first to end: ";
+            string str1 = "Bus Line: " + BusLine + "  Area: " + Area + " list station from first to end: ";
             foreach (BusLineStation buslineStation in Stations)
             {
                 str1 += buslineStation.ToString();
@@ -329,6 +329,10 @@ namespace Ex2
             set => busesCollect .Add(value);
         }
 
+        public Buses_line()//constractor
+        {
+            busesCollect = new List<Bus_Line>();
+        }
 
 
         public IEnumerator GetEnumerator()
@@ -383,7 +387,7 @@ namespace Ex2
 
                 }
             }
-            if (flag == false) throw new noBusLineInStationException();
+            if (flag == false) throw new BusException("there is no buses going in this station");
             return a;
         }
 

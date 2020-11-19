@@ -47,7 +47,7 @@
   <ItemGroup>
     <Compile Include="Bus Stop.cs" />
     <Compile Include="Buses_lines.cs" />
-    <Compile Include="noBusLineInStationException.cs" />
+    <Compile Include="exeptionBus.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
