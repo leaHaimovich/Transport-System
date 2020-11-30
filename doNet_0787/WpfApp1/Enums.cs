@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace dotNet5781_02_9887_9517
+namespace WpfApp1
 {
     public enum CHOICE
     {

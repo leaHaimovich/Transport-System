@@ -5,7 +5,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace dotNet5781_02_9887_9517
+namespace WpfApp1
 {
     /// <summary>
     /// A bus line station class that contains physical station data
