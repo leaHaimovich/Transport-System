@@ -12,7 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+/*Lea haimovich 324240787
+ * Bat sheva cohen 211735626
+ */
 namespace WpfApp1
 {
     /// <summary>
@@ -36,21 +38,24 @@ namespace WpfApp1
 
             Random r = new Random();
              lines = new BusCompany();
-            
+            int z = 0;
             for (int i = 0; i < 10; i++)
             {
                 LineBus a = new LineBus();
                 a.numBus = i;
-
+                
                 List<LineStation> lineStation = new List<LineStation>();
-                for (int j=1;j<4;j++)
+                for (int j=i;j<i+4;j++)
                 {                  
-                    lineStation.Add(new LineStation(listOfStations[j], j * 8, j + 20));
+                    lineStation.Add(new LineStation(listOfStations[z], j * 8, j + 20));
+                    z++;
                 }
                 a.firstStation = lineStation[0];
                 a.lastStation = lineStation[2];
                 a.lineRoute = lineStation;
-
+                if (i < 6)
+                    a.area = (AREA)i;
+                else a.area = (AREA)i - 5;
                 lines.addLine(a);    
                 
 
@@ -61,6 +66,7 @@ namespace WpfApp1
             cbBusLines.DisplayMemberPath = " numBus ";
             cbBusLines.SelectedIndex = 0;
             ShowBusLine(cbBusLines.SelectedIndex);
+            tbArea.Text = lines[0].area.ToString();
 
         }
 
@@ -77,6 +83,8 @@ namespace WpfApp1
         private void cbBusLines_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ShowBusLine((cbBusLines.SelectedValue as LineBus).numBus);
+            tbArea.Text = lines[(cbBusLines.SelectedValue as LineBus).numBus].area.ToString();
+           // lbBusLineStations.DataContext = lines[(cbBusLines.SelectedValue as LineBus).numBus].LineRoute;
         }
 
         private void lbBusLineStations_SelectionChanged(object sender, SelectionChangedEventArgs e)
