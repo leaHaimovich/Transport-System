@@ -17,6 +17,17 @@ namespace WpfApp1
         
         // A list containing the station route of the line
         public List<LineStation> lineRoute = new List<LineStation>();
+        public List<LineStation> LineRoute
+        {
+            get { return lineRoute; }
+            set
+            {
+                lineRoute = value;
+                //if((lineRoute[0]!= firstStation) || lineRoute[lineRoute.Count-1]!=lastStation))
+                     //   throw new ex
+            }
+
+        }
         public int numBus { get; set; } 
         public LineStation firstStation { get; set; }
         public LineStation lastStation { get; set; }

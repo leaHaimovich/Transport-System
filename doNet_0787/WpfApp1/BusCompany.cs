@@ -13,7 +13,7 @@ namespace WpfApp1
     /// </summary>
     public class BusCompany: IEnumerable
     {
-        private List<LineBus> listOfBuses = new List<LineBus>();
+        public List<LineBus> listOfBuses = new List<LineBus>();
         /// <summary>
         /// Add a line to the file
         /// </summary>

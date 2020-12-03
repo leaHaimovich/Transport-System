@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>אוטובוס.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -105,6 +108,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="אוטובוס סוף.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="WhatsApp Image 2020-11-30 at 20.17.17.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="אוטובוס.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -57,7 +57,7 @@ namespace WpfApp1
             }
 
 
-            cbBusLines.ItemsSource = lines;
+            cbBusLines.ItemsSource = lines.listOfBuses;
             cbBusLines.DisplayMemberPath = " numBus ";
             cbBusLines.SelectedIndex = 0;
             ShowBusLine(cbBusLines.SelectedIndex);
@@ -67,9 +67,11 @@ namespace WpfApp1
 
          public void ShowBusLine(int index)
         {
-            lines[index].ToString();
+            currentDisplayBusLine = lines[index];//.ToString();
             UpGrid.DataContext = currentDisplayBusLine;
-            lbBusLineStations.DataContext = lines[index].firstStation;
+            lbBusLineStations.DataContext = currentDisplayBusLine.LineRoute;
+            tbArea.DataContext = lines[index].area;
+            tbArea.Text = lines[index].area.ToString();
         }
 
         private void cbBusLines_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -78,6 +80,11 @@ namespace WpfApp1
         }
 
         private void lbBusLineStations_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ShowBusLine(cbBusLines.SelectedIndex);
+        }
+
+        private void tbArea_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }

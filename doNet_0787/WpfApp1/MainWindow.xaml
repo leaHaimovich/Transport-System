@@ -5,11 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="Buses program" Height="640" Width="800">
+    Title="Buses program" Height="640" Width="800">
     <Window.OpacityMask>
         <ImageBrush ImageSource="אוטובוס סוף.jpeg"/>
     </Window.OpacityMask>
     <Grid Name="MainGrid" Margin="10,0,-0.4,0.4">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="93*"/>
+        </Grid.ColumnDefinitions>
         <Grid.OpacityMask>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="Black" Offset="0"/>
@@ -24,7 +28,7 @@
             <RowDefinition Height="199*"/>
             <RowDefinition Height="343*"/>
         </Grid.RowDefinitions>
-        <Grid Name="UpGrid" HorizontalAlignment="Stretch" Height="auto" Grid.Row="0" VerticalAlignment="Stretch" Width="auto" Margin="0,0,-0.4,0">
+        <Grid Name="UpGrid" HorizontalAlignment="Stretch" Height="auto" Grid.Row="0" VerticalAlignment="Stretch" Width="auto" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="19*"/>
                 <ColumnDefinition Width="177*"/>
@@ -35,11 +39,11 @@
                 <ColumnDefinition Width="22*"/>
             </Grid.ColumnDefinitions >
             <ComboBox Name="cbBusLines"  HorizontalAlignment="Stretch" Margin="10,16,8.646,2" VerticalAlignment="Stretch" Grid.Column="2" SelectionChanged="cbBusLines_SelectionChanged"/>
-            <TextBox Name="tbArea" HorizontalAlignment="Stretch" Margin="33,18,9,12" TextWrapping="Wrap"  VerticalAlignment="Stretch"  Grid.Column="5" Text="{Binding Path=Area}" Grid.ColumnSpan="2"/>
+            <TextBox Name="tbArea" HorizontalAlignment="Stretch" Margin="33,18,9,12" TextWrapping="Wrap"  VerticalAlignment="Stretch"  Grid.Column="5" Text="{Binding Path=Area}" Grid.ColumnSpan="2" TextChanged="tbArea_TextChanged"/>
             <Label x:Name="Bus_Line_Numberlb" Content="Bus Line Number:" HorizontalAlignment="Left" Margin="0,16,0,0" VerticalAlignment="Top" FontSize="22" FontWeight="Bold" Grid.ColumnSpan="2" Height="52"/>
             <Label x:Name="Arealb" Content="Area:" Grid.Column="4" HorizontalAlignment="Left" Margin="63,16,0,0" VerticalAlignment="Top" RenderTransformOrigin="-3.524,1.145" FontSize="24" FontWeight="Bold" Width="95"/>
         </Grid>
-        <ListBox Name="lbBusLineStations" HorizontalAlignment="Left" Height="204" Margin="31,123,0,0" Grid.Row="1" VerticalAlignment="Top" Width="214" ItemsSource="{Binding}" Grid.RowSpan="2" SelectionChanged="lbBusLineStations_SelectionChanged">
+        <ListBox Name="lbBusLineStations" HorizontalAlignment="Left" Height="400" Margin="31,41,0,0" Grid.Row="1" VerticalAlignment="Top" Width="702" ItemsSource="{Binding}" Grid.RowSpan="2" SelectionChanged="lbBusLineStations_SelectionChanged" Grid.ColumnSpan="2">
             <ListBox.BorderBrush>
                 <RadialGradientBrush>
                     <GradientStop Color="Black" Offset="0"/>
