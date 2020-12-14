@@ -17,16 +17,13 @@ public class Buss
     private double kmafterRefueling;//קילומטר נסיעה מאז התידלוק האחרון
     private double kmFromLastTreat;
     int f;
-    public enum STATUS
-    {
-        ReadyForRide, inMiddleOfRide, Rufueling, inTreat
-    }
+    public enum Status1{ ReadyForRide, inMiddleOfRide, Rufueling, inTreat};
 
-    public STATUS Status
+    public Status1 Status
     {
         get { return Status; }
         set => Status = value;
-    }
+    } 
     public DateTime LastTreat
     {
         get { return lastTreat; }
@@ -64,8 +61,7 @@ public class Buss
     }
     public Buss() { }//constractor
     public override string ToString()
-    {
-        string str = "";
+    { string str = "";
         str += "license Number " + licenseNumber + " ";
         str += "kiloemters " + km + " ";
         return str;
