@@ -1,0 +1,16 @@
+﻿<Window x:Class="WpfApp3b.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp3b"
+        mc:Ignorable="d"
+        Title="Window1" Height="450" Width="800">
+    <Grid>
+        <Label x:Name="lblDrivingDistance" Content="Driving distance" HorizontalAlignment="Left" Margin="193,178,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
+        <TextBox x:Name="DistanceKeyDown" PreviewTextInput="NumberVaildTextBox" HorizontalAlignment="Left" Height="23" Margin="422,189,0,0" 
+TextWrapping="Wrap" VerticalAlignment="Top" Width="120" KeyDown="DistanceKeyDown_KeyDown" TextChanged="DistanceKeyDown_TextChanged"/>
+        <Label Content="Press Enter for riding" HorizontalAlignment="Left" Margin="340,287,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
+
+    </Grid>
+</Window>

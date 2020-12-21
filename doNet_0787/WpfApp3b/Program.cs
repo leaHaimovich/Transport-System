@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.XPath;
+using static Buss;
 
 namespace WpfApp3b
 {
@@ -136,12 +137,14 @@ namespace WpfApp3b
                         Console.WriteLine("ERROR: need to go to treatment, over a year\n");
                         return false;
                     }
-                    buss.Status = ReadyForRide;//לבדוקקק
+                    buss.Status = 0;
+                    //buss.Status = ReadyForRide;//לבדוקקק
                     
                     buss.Km += (int)k1;
                     buss.KmafterRefueling += (int)k1;
                     buss.kMFromLastTreat += (int)k1;
-                    buss.Status = inRide;
+                    //buss.Status = 1;
+                    buss.Status = StatusBus.inMiddleOfRide;
                     return true;
                 }
             }
@@ -155,7 +158,7 @@ namespace WpfApp3b
             {
 
                 if (buss.LicenseNumber == lpn) { buss.KmafterRefueling = 0;
-                    buss.Status = Rufueling;
+                    buss.Status = StatusBus.Rufueling;
                 }
                 return true;
             }
@@ -172,7 +175,7 @@ namespace WpfApp3b
                 {
                     buss.kMFromLastTreat = 0;
                     buss.LastTreat = DateTime.Now;
-                    buss.Status = Treat;
+                    buss.Status = StatusBus.inTreat;
                 }
                 return true;
             }

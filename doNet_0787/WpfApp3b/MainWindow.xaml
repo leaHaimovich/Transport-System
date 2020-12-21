@@ -6,10 +6,40 @@
         xmlns:local="clr-namespace:WpfApp3b"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <ListBox ItemsSource="{Binding}" HorizontalAlignment="Left" Height="265" Margin="35,105,0,0" VerticalAlignment="Top" Width="713" SelectionChanged="ListBox_SelectionChanged"/>
+
+   
+    <Window.Resources>
+        <DataTemplate x:Key="BussTemplate"
+                 DataType="local:MyData">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0"
+            Text="license Number:  " />
+                <TextBlock Grid.Column="2"
+            Text="{Binding Path=LicenseNumber}" />
+                <Button  Grid.Column="4"  
+                         Content="Travel" Width="80" Click="Button_Click" />
+                <Button  Grid.Column="6" 
+                        Content="Refueling" Width="80" Click="Button1_Click" />
+            </Grid>
+        </DataTemplate>
+    </Window.Resources>    <Grid>
+        <ListBox x:Name="lstBuses" ItemsSource="{Binding}"
+                 ItemTemplate="{StaticResource BussTemplate}"
+                 HorizontalAlignment="Left" Height="265" Margin="35,105,0,0" VerticalAlignment="Top" Width="713" MouseDoubleClick="lstBuses_MaouseDoubleClick" SelectionChanged="lstBuses_SelectionChanged" />
         <Label x:Name="listOfBusses" Content="List Of Busses" HorizontalAlignment="Left" Margin="109,39,0,0" VerticalAlignment="Top" FontSize="36" FontFamily="Showcard Gothic"/>
         <Button x:Name="btnAddNewBuss" Content="Add New Buss" HorizontalAlignment="Left" Margin="638,39,0,0" VerticalAlignment="Top" Width="115" FontWeight="Bold" Height="29" FontFamily="SimSun-ExtB" Click="btnAddNewBuss_Click"/>
 
-    </Grid>
+    </Grid>
 </Window>

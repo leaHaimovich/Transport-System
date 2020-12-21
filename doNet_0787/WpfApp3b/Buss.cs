@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
+//public enum StatusBus { ReadyForRide = 0, inMiddleOfRide, Rufueling, inTreat };
 public class Buss
 {
 
@@ -17,12 +17,14 @@ public class Buss
     private double kmafterRefueling;//קילומטר נסיעה מאז התידלוק האחרון
     private double kmFromLastTreat;
     int f;
-    public enum Status1{ ReadyForRide, inMiddleOfRide, Rufueling, inTreat};
+    private StatusBus status;
+  public  enum StatusBus { ReadyForRide = 0, inMiddleOfRide, Rufueling, inTreat };
 
-    public Status1 Status
+    public StatusBus Status
     {
-        get { return Status; }
-        set => Status = value;
+        get => status;
+        set => status = value;
+        
     } 
     public DateTime LastTreat
     {
@@ -37,20 +39,21 @@ public class Buss
     }
     public double Km
     {
-        get { return km; }
-        set => km = value;
-
+        //get { return km; }
+        //set => km = value;
+        get;set;
     }
     public double KmafterRefueling
     {
-        get { return kmafterRefueling; }
-        set => km = kmafterRefueling;
-
+        //get { return kmafterRefueling; }
+        //set => km = kmafterRefueling;
+        get; set;
     }
     public double kMFromLastTreat
     {
-        get { return kmFromLastTreat; }
-        set => km = kmFromLastTreat;
+        //get { return kmFromLastTreat; }
+        //set => km = kmFromLastTreat;
+        get; set;
 
     }
     // List<Buss> Buslist = new List<Buss>();//רשימת האוטובוסים
@@ -65,5 +68,34 @@ public class Buss
         str += "license Number " + licenseNumber + " ";
         str += "kiloemters " + km + " ";
         return str;
+    }
+    public string PrintBuss()
+    {
+        string str = "";
+        str += "license Number:  " + licenseNumber + " ";
+        str += "kiloemters " + km + " ";
+        str += "kmafterRefueling:  " + kmafterRefueling + " ";
+        str += "kmFromLastTreat:  " + kmFromLastTreat + "  ";
+        str += "lastTreat:  " + lastTreat + "  ";
+        return str;
+
+    }
+    public void REFUELING()
+    {
+        KmafterRefueling = 0;
+        Status = StatusBus.Rufueling;
+    }
+    public void TRETMENT()
+    {
+        kMFromLastTreat = 0;
+        LastTreat = DateTime.Now;
+        Status = StatusBus.inTreat;
+    }
+    public void DRIVING()
+    {
+
+    }
+    internal class STATUS
+    {
     }
 }
