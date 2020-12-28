@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DLAPI.DO
+namespace DO
 {
-    class LineStation
+   public class LineStation
     {
         public int LineID { get; set; }//id of line
         public int Station { get; set; }//station code

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DO
 {
-    class Trip
+    public class Trip
     {
         public int ID { get; set; }//id of line
         public string UserName { get; set; }//user name 

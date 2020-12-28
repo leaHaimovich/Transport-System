@@ -44,7 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
-    <Compile Include="DO\AdjacentStationcs.cs" />
+    <Compile Include="DO\AdjacentStations.cs" />
     <Compile Include="DO\Bus.cs" />
     <Compile Include="DO\BusOnTrip.cs" />
     <Compile Include="DO\Line.cs" />

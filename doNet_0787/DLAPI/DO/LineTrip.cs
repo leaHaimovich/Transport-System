@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DO
 {
-    class LineTrip
+   public  class LineTrip
     {
         public int ID { get; set; }//id
         public int LineID { get; set; }//id of line
