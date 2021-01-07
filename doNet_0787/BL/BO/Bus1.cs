@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DO
+namespace BO
 {
-   public class Bus
+    public  class Bus1
     {
         public int LicenseNum { get; set; }//License Number of the bus
         public DateTime LicensingDate { get; set; }//Licensing Date of the bus

@@ -1,0 +1,15 @@
+﻿<Window x:Class="PL.LinesShow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PL"
+        mc:Ignorable="d"
+        Title="LinesShow" Height="450" Width="800">
+    <Grid Margin="0,0,-6.4,0">
+        <ListBox x:Name="lstbxLines" HorizontalAlignment="Left" Height="311" Margin="156,57,0,0" VerticalAlignment="Top" Width="190"/>
+        <Button x:Name="btnLines" Content="קווים" HorizontalAlignment="Left" Margin="10,99,0,0" VerticalAlignment="Top" Width="141" Height="63" FontSize="22" FontWeight="Bold" Click="Button_Click"/>
+        <Button x:Name="btnStations" Content="תחנות" HorizontalAlignment="Left" Margin="10,167,0,0" VerticalAlignment="Top" Width="141" Height="65" FontSize="24" FontWeight="Bold"/>
+
+    </Grid>
+</Window>

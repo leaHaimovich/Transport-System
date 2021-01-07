@@ -1,0 +1,23 @@
+﻿<Window x:Class="PL.UpdateStationLine"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PL"
+        mc:Ignorable="d"
+        Title="UpdateStationLine" Height="450" Width="800">
+    <Grid>
+        <Label Content=": שם התחנה" HorizontalAlignment="Left" Margin="587,74,0,0" VerticalAlignment="Top" FontSize="20" Width="206"/>
+        <Label Content=": מרחק לתחנה הבאה  " HorizontalAlignment="Left" Margin="587,152,0,0" VerticalAlignment="Top" FontSize="20" Width="206"/>
+        <Label Content=": זמן לתחנה הבאה" HorizontalAlignment="Left" Margin="587,225,0,0" VerticalAlignment="Top" FontSize="20" Width="206"/>
+        <TextBox x:Name="txtStationName" HorizontalAlignment="Left" Height="35" Margin="421,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141"/>
+        <TextBox x:Name="txtDistance" HorizontalAlignment="Left" Height="35" Margin="421,153,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141"/>
+        <Button x:Name="btnUpdateLineStation" Content="עדכן תחנה" HorizontalAlignment="Left" Margin="60,196,0,0" VerticalAlignment="Top" Width="196" Height="83" FontSize="24" FontWeight="Bold" Click="btnUpdateLineStation_Click"/>
+        <TextBox x:Name="txtTimeSecond" HorizontalAlignment="Left" Height="38" Margin="520,225,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="52"/>
+        <TextBox x:Name="txtTimeMiniute" HorizontalAlignment="Left" Height="38" Margin="447,225,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="52"/>
+        <TextBox x:Name="txtTimeHour" HorizontalAlignment="Left" Height="38" Margin="364,229,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="52"/>
+        <Label Content=":" HorizontalAlignment="Left" Margin="504,225,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24"/>
+        <Label Content=":" HorizontalAlignment="Left" Margin="421,225,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24"/>
+
+    </Grid>
+</Window>

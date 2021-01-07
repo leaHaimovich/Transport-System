@@ -43,7 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="DO\Exception.cs" />
+    <Compile Include="DO\StaticRunNumbers.cs" />
+    <Compile Include="IDL.cs" />
+    <Compile Include="DLConfigcs.cs" />
+    <Compile Include="DLFactory.cs" />
     <Compile Include="DO\AdjacentStations.cs" />
     <Compile Include="DO\Bus.cs" />
     <Compile Include="DO\BusOnTrip.cs" />

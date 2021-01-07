@@ -4,16 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DO
+namespace BO
 {
-   public class LineStation
+    public class LineStation1
     {
         public int LineID { get; set; }//id of line
-        public int lineCode { get; set; }//number line
+       public  string StationName { get; set; }// station name
         public int Station { get; set; }//station code
-        public int LineStationIndex { get; set; }//Station number on line
+        public int LineStationIndex { get; set; }//Station number on line לא צריךךך אפשר למחוקק
         public int PrevStation { get; set; }//prev Station
         public int NextStation { get; set; }// next station 
-
     }
 }

@@ -75,5 +75,9 @@ namespace WpfApp3b
             bus.Status = StatusBus.ReadyForRide;
         }
 
+        private void LitersKeyDown_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

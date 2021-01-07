@@ -9,7 +9,7 @@
     <Grid>
         <Label x:Name="lblEnterthenumberoflitersyouwanttorefuel" Content="Enter the number of liters you want to refuel" HorizontalAlignment="Left" Margin="196,129,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
         <TextBox x:Name="LitersKeyDown" PreviewTextInput="NumberVaildTextBox1" HorizontalAlignment="Left" Height="60" Margin="268,199,0,0" 
-                 TextWrapping="Wrap" VerticalAlignment="Top" Width="224"  KeyDown="LitersKeyDown_KeyDown" />
+                 TextWrapping="Wrap" VerticalAlignment="Top" Width="224"  KeyDown="LitersKeyDown_KeyDown" TextChanged="LitersKeyDown_TextChanged" />
 
     </Grid>
 </Window>
