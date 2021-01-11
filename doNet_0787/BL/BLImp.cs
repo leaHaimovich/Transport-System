@@ -33,6 +33,7 @@ namespace BL
             s.Station = LS.CodeStation;
             s.NextStation=LS.NextStation;
             s.LineID = LS.LineCode;
+            s.lineCode = LS.LineCode;
             try { dl.UpdateLineStation(s); }
             catch { throw new NotExistExceptionBO(); }
             DO.AdjacentStations adjs = new AdjacentStations();
@@ -40,6 +41,7 @@ namespace BL
             adjs.Station2 = LS.NextStation;
             adjs.Time = LS.Time;
             adjs.Distance = LS.Distance;
+            adjs.lineCode = LS.LineCode;
 
             try { dl.UpdateAdjacentStations(adjs); }
             catch { throw new NotExistExceptionBO(); }
@@ -101,7 +103,7 @@ namespace BL
             try { dl.DeleteLine(l.Code, (Line.AREA)l.Area); }
             catch { throw new NotExistExceptionBO(); }
                     
-            dl.DeleteLineTrip(a.ID);
+            dl.DeleteLineTrip(a.Code);
             
         }
 
@@ -138,6 +140,7 @@ namespace BL
             adj.Time = sl.Time;
             adj.lineCode = sl.LineCode;
             dl.AddAdjacentStations(adj);
+           // L.StationListOfLine.
            // dl.add
         }
         public STATIONLINE ConvertLineStationToSTATIONLINE(LineStation ls,TimeSpan t,double dis,string name)
@@ -146,7 +149,7 @@ namespace BL
             SL.CodeStation = ls.Station;
             SL.NextStation = ls.NextStation;
            // SL.PrevStation = ls.PrevStation;
-            SL.LineCode = dl.GetLine(ls.LineID).Code;
+            SL.LineCode = ls.lineCode;
            SL.Time = t;
            SL.Distance = dis;
             SL.StationName = name;
@@ -196,7 +199,7 @@ namespace BL
             //L.StartAt = lp.StartAt;
             //L.FinishAt = lp.FinishAt;
             //L.Frequency = lp.Frequency;
-            IEnumerable<DO.LineStation> ls = dl.GetAllLineStationsBy(x => x.LineID == l.ID);
+            IEnumerable<DO.LineStation> ls = dl.GetAllLineStationsBy(x => x.lineCode == l.Code);
           //  IEnumerable<DO.Station> st = dl.GetAllStations();
             IEnumerable<STATIONLINE> SL = from a in ls
                                           from b in dl.GetAllAdjacentStationsBy(x => x.Station1 == a.Station || x.Station2 == a.NextStation)

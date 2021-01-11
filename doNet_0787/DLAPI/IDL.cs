@@ -24,7 +24,7 @@ namespace dl
         IEnumerable<Line> GetAllLines();
         IEnumerable<Line> GetAllLinesBy(Predicate<Line> predicate);
         public Line GetLine(int code,AREA area);
-        public Line GetLine(int ID);
+       // public Line GetLine(int ID);
         public void AddLine(Line line);//add line
         public void DeleteLine(int code,AREA area);//delete line
         public void UpdateLine(Line line);

@@ -9,8 +9,8 @@
     <Grid>
         <Label Content="בחר תחנה  " HorizontalAlignment="Left" Margin="668,93,0,0" VerticalAlignment="Top" FontSize="18"/>
         <ComboBox x:Name="cmbStation" HorizontalAlignment="Left" Margin="423,93,0,0" VerticalAlignment="Top" Width="192" Height="34" SelectionChanged="ComboBox_SelectionChanged"/>
-        <Label Content=" :מרחק לתחנה הבאה " HorizontalAlignment="Left" Margin="598,178,-0.4,0" VerticalAlignment="Top" FontSize="18" Width="196"/>
-        <Label Content=":זמן לתחנה הבאה" HorizontalAlignment="Left" Margin="642,269,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Label Content=" :מרחק לתחנה  " HorizontalAlignment="Left" Margin="598,178,-0.4,0" VerticalAlignment="Top" FontSize="18" Width="196"/>
+        <Label Content=":זמן לתחנה " HorizontalAlignment="Left" Margin="642,269,0,0" VerticalAlignment="Top" FontSize="18"/>
         <TextBox x:Name="txtDistance" HorizontalAlignment="Left" Height="34" Margin="406,178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168"/>
         <TextBox x:Name="txtFinishAtSecond" HorizontalAlignment="Left" Height="38" Margin="522,269,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="52"/>
         <TextBox x:Name="txtFinishAtMiniute" HorizontalAlignment="Left" Height="38" Margin="449,269,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="52"/>

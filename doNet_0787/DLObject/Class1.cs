@@ -57,7 +57,7 @@ namespace DL
         public void AddLine(Line line)//לברר בדיוקק
         {
             if (DataSource.listLine.FirstOrDefault(l => l.StationNum == line.StationNum 
-                             && l.FirstStation == line.FirstStation && l.LastStation == line.LastStation ) != null)
+                             && l.FirstStation == line.FirstStation && l.LastStation == line.LastStation && l.Code==line.Code) != null)
             {
                     throw new DO.OlreadtExistException("THIS LINE ALLREADY EXIST ");
             }
@@ -127,9 +127,9 @@ namespace DL
             }
             else throw new DO.NotExistException("THIS USER DOSENT EXIST");
         }
-        public void DeleteLineTrip(int lineId)
+        public void DeleteLineTrip(int lineCode)
         {
-            LineTrip lt = DataSource.listLineTrip.Find(b=>b.LineID==lineId);
+            LineTrip lt = DataSource.listLineTrip.Find(b=>b.LineID== lineCode);
             if (lt != null)
             { DataSource.listLineTrip.Remove(lt); }
             else throw new DO.NotExistException();
@@ -236,13 +236,13 @@ namespace DL
             else throw new DO.NotExistException("THIS LINE DOSENT EXIST");
             
         }
-        public Line GetLine(int ID)
-        {
-            Line l = DataSource.listLine.Find(b => b.ID==ID);
-            if (l != null)
-                return l.Clone();
-            else { throw new DO.NotExistException("THIS LINE DOSENT EXIST"); }//trhow
-        }
+        //public Line GetLine(int ID) 
+        //{
+        //    Line l = DataSource.listLine.Find(b => b.ID==ID);
+        //    if (l != null)
+        //        return l.Clone();
+        //    else { throw new DO.NotExistException("THIS LINE DOSENT EXIST"); }//trhow
+        //}
         public Station GetStation(int Code)
         {
             Station st = DataSource.listStations.Find(s => s.Code == Code);

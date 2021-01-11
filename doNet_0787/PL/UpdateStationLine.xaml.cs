@@ -29,6 +29,7 @@ namespace PL
             stl = S;
             InitializeComponent();
             wind = i;
+            txtStationName.Text = S.StationName;
         }
 
         private void btnUpdateLineStation_Click(object sender, RoutedEventArgs e)
@@ -49,6 +50,7 @@ namespace PL
             }
             if(wind==2)
             {
+                this.Close();
                 //UpdateLine c=new UpdateLine(bl,bl.GetLINE())
             }
         }

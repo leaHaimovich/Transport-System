@@ -563,10 +563,10 @@ namespace DS
 
             listLineStation = new List<LineStation>
             {
-                new LineStation{ LineID=1,Station=73, LineStationIndex=1, NextStation=76, PrevStation=0},
-                new LineStation{ LineID=1,Station=76, LineStationIndex=2, NextStation=77, PrevStation=73},
-                new LineStation{ LineID=1,Station=77, LineStationIndex=3, NextStation=78, PrevStation=76},
-                new LineStation{ LineID=32,Station=78, LineStationIndex=4, NextStation=83, PrevStation=77}
+                new LineStation{ lineCode=32,Station=73, LineStationIndex=1, NextStation=76, PrevStation=0},
+                new LineStation{ lineCode=32,Station=76, LineStationIndex=2, NextStation=77, PrevStation=73},
+                new LineStation{ lineCode=32,Station=77, LineStationIndex=3, NextStation=78, PrevStation=76},
+                new LineStation{ lineCode=32,Station=78, LineStationIndex=4, NextStation=83, PrevStation=77}
 
             };
 
@@ -574,7 +574,8 @@ namespace DS
             {
                 new AdjacentStations{ Distance=10, Station1=73, Station2=76, Time=new TimeSpan(0,10,30)},
                 new AdjacentStations{ Distance=10, Station1=76, Station2=77, Time=new TimeSpan(0,10,30)},
-                new AdjacentStations{ Distance=10, Station1=73, Station2=33, Time=new TimeSpan(0,10,30)}
+                new AdjacentStations{ Distance=10, Station1=73, Station2=33, Time=new TimeSpan(0,10,30)},
+                 new AdjacentStations{ Distance=12, Station1=73, Station2=32, Time=new TimeSpan(0,12,30)}
             };
             listLineTrip = new List<LineTrip>
             {
@@ -586,8 +587,8 @@ namespace DS
                 new LineTrip{ ID=6, LineID=6, StartAt=new TimeSpan(7,0,0), FinishAt=new TimeSpan(10,30,0), Frequency=new TimeSpan(0,30,0)},
                 new LineTrip{ ID=7, LineID=7, StartAt=new TimeSpan(7,0,0), FinishAt=new TimeSpan(10,30,0), Frequency=new TimeSpan(0,30,0)},
                 new LineTrip{ ID=8, LineID=8, StartAt=new TimeSpan(7,0,0), FinishAt=new TimeSpan(10,30,0), Frequency=new TimeSpan(0,30,0)},
-                new LineTrip{ ID=9, LineID=9, StartAt=new TimeSpan(7,0,0), FinishAt=new TimeSpan(10,30,0), Frequency=new TimeSpan(0,30,0)},
-                new LineTrip{ ID=10, LineID=10, StartAt=new TimeSpan(7,0,0), FinishAt=new TimeSpan(10,30,0), Frequency=new TimeSpan(0,30,0)}
+                new LineTrip{ ID=9, LineID=55, StartAt=new TimeSpan(7,0,0), FinishAt=new TimeSpan(10,30,0), Frequency=new TimeSpan(0,30,0)},
+                new LineTrip{ ID=10, LineID=32, StartAt=new TimeSpan(7,0,0), FinishAt=new TimeSpan(10,30,0), Frequency=new TimeSpan(0,30,0)}
             };
         }
 

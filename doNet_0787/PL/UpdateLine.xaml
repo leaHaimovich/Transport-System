@@ -17,7 +17,7 @@
         <Label Content=": תחנות הקו" HorizontalAlignment="Left" Margin="206,194,0,0" VerticalAlignment="Top" Grid.Column="2" FontSize="18" Width="115"/>
         <TextBox x:Name="txtLineCode" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="81,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
         <ComboBox x:Name="cmbArea" Grid.Column="2" HorizontalAlignment="Left" Margin="68,139,0,0" VerticalAlignment="Top" Width="133" SelectionChanged="cmbArea_SelectionChanged"/>
-        <DataGrid x:Name="dataGridStationLINE" HorizontalAlignment="Left" Height="200" Margin="183,194,0,0" VerticalAlignment="Top" Width="490" Grid.ColumnSpan="3" ItemsSource="{Binding}">
+        <DataGrid x:Name="dataGridStationLINE" HorizontalAlignment="Left" Height="200" Margin="183,194,0,0" VerticalAlignment="Top" Width="490" Grid.ColumnSpan="3" ItemsSource="{Binding}" SelectionChanged="dataGridStationLINE_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="stationCode" Header="מספר תחנה " Width="sizeToHeader" Binding="{Binding stationCode}"></DataGridTextColumn>
                 <DataGridTextColumn x:Name="stationName" Header="שם תחנה " Width="sizeToHeader" Binding="{Binding satationName}"/>
@@ -33,13 +33,14 @@
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button x:Name="btnAddStationLine" Content=" הוסף תחנה לפני " Click="btnAddStationLine_Click"/>
+                            <Button x:Name="btnAddStationLine" Content=" הוסף תחנה  " Click="btnAddStationLine_Click"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="btnUpdataLine" Content="עדכן קו" HorizontalAlignment="Left" Margin="10,297,0,0" VerticalAlignment="Top" Width="146" Height="84" FontSize="20" FontWeight="Bold" Click="btnUpdataLine_Click"/>
+        <Button x:Name="btnAddFirstStationLine" Content=" הוסף את התחנה הראשונה שלך" HorizontalAlignment="Left" Margin="55,399,0,0" VerticalAlignment="Top" Width="200" Height="39" Grid.Column="2" Click="btnAddFirstStationLine_Click_1" Visibility="Hidden"/>
 
     </Grid>
 </Window>

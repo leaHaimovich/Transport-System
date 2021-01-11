@@ -31,6 +31,7 @@ namespace PL
             ln = l;
             InitializeComponent();
             txtLineCode.Text =Convert.ToString( ln.Code);
+            txtLineCode.IsEnabled = false;
            
             cmbArea.ItemsSource = Enum.GetValues(typeof(BO.Emuns.AREA));
             cmbArea.Text = Convert.ToString(ln.Area);
@@ -38,13 +39,24 @@ namespace PL
             DataContext = ln.StationListOfLine;
             FinalListStation = ln.StationListOfLine;
 
-            BO.STATIONLINE x = (BO.STATIONLINE)dataGridStationLINE.SelectedItem;
-            stationlinechhosen = x;
-        }
+            if(l.StationListOfLine.ToList().Count==0)
+            {
+                btnAddFirstStationLine.Visibility = Visibility.Visible;
+                //btnAddFirstStationLine.IsEnabled = true;
+            }
 
+           
+        }
+        private void btnAddFirstStationLine_Click(object sender, RoutedEventArgs e)
+        {
+            AddStationLine a = new AddStationLine(bl, ln, stationlinechhosen, true);
+            a.Show();
+        }
        private void btnAddStationLine_Click(object sender, RoutedEventArgs e)
         {
-            AddStationLine a = new AddStationLine(bl,ln,stationlinechhosen);
+            BO.STATIONLINE x = (BO.STATIONLINE)dataGridStationLINE.SelectedItem;
+            stationlinechhosen = x;
+            AddStationLine a = new AddStationLine(bl,ln,stationlinechhosen,false);
             a.Show();
         }
         private void btnUpdateLine_Click(object sender, RoutedEventArgs e)
@@ -55,7 +67,8 @@ namespace PL
 
         private void btnUpdateStationLine_Click(object sender, RoutedEventArgs e)
         {
-
+            UpdateStationLine a = new UpdateStationLine(bl, (BO.STATIONLINE)dataGridStationLINE.SelectedItem, 2);
+            a.Show();
         }
 
         private void btnUpdataLine_Click(object sender, RoutedEventArgs e)
@@ -79,6 +92,18 @@ namespace PL
         private void cmbArea_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void dataGridStationLINE_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void btnAddFirstStationLine_Click_1(object sender, RoutedEventArgs e)
+        {
+
+            AddStationLine a = new AddStationLine(bl, ln, stationlinechhosen, true);
+            a.Show();
         }
     }
 }
