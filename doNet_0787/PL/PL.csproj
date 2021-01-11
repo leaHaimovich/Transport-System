@@ -58,15 +58,25 @@
     <Compile Include="AddNewLine.xaml.cs">
       <DependentUpon>AddNewLine.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AddStationLine.xaml.cs">
+      <DependentUpon>AddStationLine.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PO\linePO.cs" />
     <Compile Include="PO\stationLinePO.cs" />
     <Compile Include="SHOWALL.xaml.cs">
       <DependentUpon>SHOWALL.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UpdateLine.xaml.cs">
+      <DependentUpon>UpdateLine.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UpdateStationLine.xaml.cs">
       <DependentUpon>UpdateStationLine.xaml</DependentUpon>
     </Compile>
     <Page Include="AddNewLine.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddStationLine.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -90,6 +100,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="SHOWALL.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpdateLine.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

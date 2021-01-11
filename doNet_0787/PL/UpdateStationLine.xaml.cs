@@ -22,11 +22,13 @@ namespace PL
     {
         IBL bl;
         BO.STATIONLINE stl;
-        public UpdateStationLine(IBL bl1, BO.STATIONLINE S)//,BO.STATIONLINE S
+        int wind;
+        public UpdateStationLine(IBL bl1, BO.STATIONLINE S,int i)//,BO.STATIONLINE S
         {
             bl = bl1;
             stl = S;
             InitializeComponent();
+            wind = i;
         }
 
         private void btnUpdateLineStation_Click(object sender, RoutedEventArgs e)
@@ -40,8 +42,15 @@ namespace PL
             sl.LineCode = stl.LineCode;
             sl.LineCode = stl.LineCode;
             bl.updateSTATIONLINE(sl);
-            SHOWALL a = new SHOWALL(bl);
-            a.Show();
+            if (wind == 1)
+            {
+                SHOWALL a = new SHOWALL(bl);
+                a.Show();
+            }
+            if(wind==2)
+            {
+                //UpdateLine c=new UpdateLine(bl,bl.GetLINE())
+            }
         }
     }
 }

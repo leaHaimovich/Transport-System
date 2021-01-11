@@ -21,7 +21,12 @@ namespace DL
         #endregion
 
         #region addFunc
-
+        public void AddAdjacentStations(AdjacentStations a)
+        {
+            if (DataSource.listAdjacentStation.FirstOrDefault(x => x.Station1 == a.Station1 && x.Station2 == a.Station2 && x.lineCode == a.lineCode) != null)
+                throw new DO.OlreadtExistException(" ALLREADY EXIST ");
+            DataSource.listAdjacentStation.Add(a);
+        }
         public bool addLineStation(LineStation ls)
         {
             if (DataSource.listLineStation.FirstOrDefault(b => b.LineID == ls.LineID && b.Station==ls.Station) != null)
@@ -262,6 +267,12 @@ namespace DL
                 return st.Clone();
             else throw new DO.NotExistException("THIS LineTrip DOSENT EXIST");//trhow
         }
+        public LineStation GetLineStation(int lineCode1, int StationCode)
+        {
+            LineStation a = DataSource.listLineStation.Find(x => x.lineCode == lineCode1 && x.Station == StationCode);
+            if (a != null) return a.Clone();
+            else throw new NotExistException();
+        }
         #endregion
 
         #region Update
@@ -289,12 +300,12 @@ namespace DL
 
         public void UpdateLine(Line line)
         {
-            Line per = DataSource.listLine.Find(p => p.ID == line.ID);
+            Line per = DataSource.listLine.Find(p => p.Code == line.Code);
 
             if (per != null)
             {
                 DataSource.listLine.Remove(per);
-                DataSource.listLine.Add(per.Clone());
+                DataSource.listLine.Add(line);
             }
             else
                 throw new DO.NotExistException("THIS LINE DOSENT EXIST");
@@ -365,7 +376,7 @@ namespace DL
         #endregion
 
         #region LineStation
-        public void UpdateLineStation(LineStation ls)
+        public bool UpdateLineStation(LineStation ls)
         {
             LineStation per = DataSource.listLineStation.Find(p => p.lineCode == ls.lineCode && p.Station==ls.Station);
 
@@ -373,6 +384,7 @@ namespace DL
             {
                 DataSource.listLineStation.Remove(per);
                 DataSource.listLineStation.Add(per.Clone());
+                return true;
             }
             else
                 throw new DO.NotExistException("THIS LINE STATION DOSENT EXIST");
@@ -403,3 +415,4 @@ namespace DL
 
     }
 }
+

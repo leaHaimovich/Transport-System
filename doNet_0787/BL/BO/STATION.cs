@@ -16,5 +16,10 @@ namespace BO
        
         public IEnumerable<LINE> LinesOnThisStation { get; set; }// קווי אוטובוס שעוברים בתחנה
         public IEnumerable<STATIONLINE> LinesAdjacentStations { get; set; }//רשימת תחנות עוקבות לתחנה זאת
+        public override string ToString()
+        {
+            string str = Code + " " + Name + " ";
+            return str;
+        }
     }
 }

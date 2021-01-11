@@ -44,7 +44,7 @@ namespace PL
         {
            // UpdateStationLine a = new UpdateStationLine(bl);
             BO.STATIONLINE z= (BO.STATIONLINE)DatatGridLines.SelectedItem;
-            UpdateStationLine a = new UpdateStationLine(bl,z);
+            UpdateStationLine a = new UpdateStationLine(bl,z,1);
             a.Show();
         }
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -97,6 +97,12 @@ namespace PL
           
             
            
+        }
+
+        private void btnUpdateLine_Click(object sender, RoutedEventArgs e)
+        {
+            UpdateLine update = new UpdateLine(bl, (lst.SelectedItem) as BO.LINE);
+            update.Show();
         }
     }
 }

@@ -27,6 +27,7 @@ namespace BLAPI
 
         #region STATION
         STATION GetSTATION(int code);
+        IEnumerable<STATION> GetALLSTATION();
         void SetTime(TimeSpan ts, int station1Code, int station2Code);
         void SetDistance(double distance, int station1Code, int station2Code);
         void AddSTATION(STATION newSTATION);
@@ -38,7 +39,8 @@ namespace BLAPI
 
         STATIONLINE ConvertLineStationToSTATIONLINE(DO.LineStation ls, TimeSpan t, double dis, string name);
         void updateSTATIONLINE(STATIONLINE L);
-
+        DO.LineStation convertSTATIONLINEToLineStation(STATIONLINE SL, int lineID);
+        void AddSTATIONLINE(STATIONLINE sl);
 
 
         //#region bus

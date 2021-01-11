@@ -124,6 +124,22 @@ namespace BL
             L.Frequency = lp.Frequency;
             return L;
         }
+        public void AddSTATIONLINE(STATIONLINE sl)
+        {
+            DO.LineStation a = new LineStation();
+            a.lineCode = sl.LineCode;
+            a.Station = sl.CodeStation;
+            a.NextStation = sl.NextStation;
+            dl.addLineStation(a);
+            DO.AdjacentStations adj = new AdjacentStations();
+            adj.Station1 = sl.CodeStation;
+            adj.Station2 = sl.NextStation;
+            adj.Distance = sl.Distance;
+            adj.Time = sl.Time;
+            adj.lineCode = sl.LineCode;
+            dl.AddAdjacentStations(adj);
+           // dl.add
+        }
         public STATIONLINE ConvertLineStationToSTATIONLINE(LineStation ls,TimeSpan t,double dis,string name)
         {
             STATIONLINE SL = new STATIONLINE();
@@ -176,10 +192,10 @@ namespace BL
             LINE L = new LINE();
             L.Code = l.Code;
             L.Area = (Emuns.AREA)l.Area;
-            DO.LineTrip lp = dl.GetLineTrip(l.ID);
-            L.StartAt = lp.StartAt;
-            L.FinishAt = lp.FinishAt;
-            L.Frequency = lp.Frequency;
+            //DO.LineTrip lp = dl.GetLineTrip(l.ID);
+            //L.StartAt = lp.StartAt;
+            //L.FinishAt = lp.FinishAt;
+            //L.Frequency = lp.Frequency;
             IEnumerable<DO.LineStation> ls = dl.GetAllLineStationsBy(x => x.LineID == l.ID);
           //  IEnumerable<DO.Station> st = dl.GetAllStations();
             IEnumerable<STATIONLINE> SL = from a in ls
@@ -198,7 +214,14 @@ namespace BL
         {
             throw new NotImplementedException();
         }
-
+        public IEnumerable<STATION> GetALLSTATION()
+        {
+            //מחזיר את רשימת כל התחנות הפיזיות 
+            
+                return from station in dl.GetAllStations()
+                       let BOstation = station.CopyPropertiesToNew(typeof(BO.STATION)) as BO.STATION
+                       select BOstation;          
+        }
         public void SetDistance(double distance, int station1Code, int station2Code)
         {
             throw new NotImplementedException();
@@ -209,9 +232,32 @@ namespace BL
             throw new NotImplementedException();
         }
 
+        public LineStation convertSTATIONLINEToLineStation(STATIONLINE SL,int lineID)
+        {
+            DO.LineStation ls = new LineStation();
+            ls.lineCode = SL.LineCode;
+            ls.Station = SL.CodeStation;
+            ls.NextStation = SL.NextStation;
+            ls.LineID = lineID;
+            return ls;
+        }
         public void UpdateLINE(LINE upline)
         {
-            throw new NotImplementedException();
+            DO.Line ld = new Line();
+            ld.Area = (Line.AREA)upline.Area;
+            ld.Code = upline.Code;
+            
+            //DO.Line ld = dl.GetLine(upline.Code, (Line.AREA)upline.Area);
+            dl.UpdateLine(ld);
+
+            var v = from a in upline.StationListOfLine
+                    select convertSTATIONLINEToLineStation(a, ld.ID);
+            var v1 = from z in v
+                     select dl.UpdateLineStation(z);
+                    //from b in dl.GetAllLineStationsBy(x=>x.lineCode==a.LineCode && x.Station==a.CodeStation)
+
+                    //dl.UpdateLineStation(dl.GetLineStation(upline.Code, a.CodeStation));
+            //throw new NotImplementedException();
         }
 
         public void UpdateSTATION(STATION upstation)

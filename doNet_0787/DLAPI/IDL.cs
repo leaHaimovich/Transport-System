@@ -55,8 +55,9 @@ namespace dl
         #region LineStation
         IEnumerable<LineStation> GetAllLineStationsBy(Predicate<LineStation> predicate);
         IEnumerable<LineStation> GetAllLineStations();
-        public void UpdateLineStation(LineStation ls);
+        public bool UpdateLineStation(LineStation ls);
         public bool addLineStation(LineStation ls);
+        LineStation GetLineStation(int lineCode, int StationCode);
         //public void UpdateLineStation()
 
         #endregion
@@ -69,10 +70,12 @@ namespace dl
         IEnumerable<LineTrip> GetAllLineTripsBy(Predicate<LineTrip> predicate);
         #endregion
 
+        #region AdjacentStations
         IEnumerable<AdjacentStations> GetAllAdjacentStations();
         IEnumerable<AdjacentStations> GetAllAdjacentStationsBy(Predicate<AdjacentStations> predicate);
         void UpdateAdjacentStations(AdjacentStations a);
-
+        void AddAdjacentStations(AdjacentStations a);
+        #endregion
         //#region AdjacentStations
         //public void SetDistance(double distance, int station1Code, int station2Code);
         //public void SetTime(TimeSpan t, int station1Code, int station2Code);
