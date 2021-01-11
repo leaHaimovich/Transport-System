@@ -58,6 +58,7 @@ namespace dl
         public bool UpdateLineStation(LineStation ls);
         public bool addLineStation(LineStation ls);
         LineStation GetLineStation(int lineCode, int StationCode);
+        void DeleteLineStation(LineStation l);
         //public void UpdateLineStation()
 
         #endregion
@@ -75,6 +76,8 @@ namespace dl
         IEnumerable<AdjacentStations> GetAllAdjacentStationsBy(Predicate<AdjacentStations> predicate);
         void UpdateAdjacentStations(AdjacentStations a);
         void AddAdjacentStations(AdjacentStations a);
+        AdjacentStations GetAdjacentStations(int codeStation1, int codeStation2, int lineCode);
+        void DeleteAdjacentStations(AdjacentStations adjd);
         #endregion
         //#region AdjacentStations
         //public void SetDistance(double distance, int station1Code, int station2Code);

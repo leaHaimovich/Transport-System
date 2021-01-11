@@ -29,7 +29,7 @@ namespace DL
         }
         public bool addLineStation(LineStation ls)
         {
-            if (DataSource.listLineStation.FirstOrDefault(b => b.LineID == ls.LineID && b.Station==ls.Station) != null)
+            if (DataSource.listLineStation.FirstOrDefault(b => b.LineID == ls.LineID && b.Station == ls.Station) != null)
             {
                 throw new DO.OlreadtExistException("THIS BUS ALLREADY EXIST ");
             }
@@ -47,25 +47,25 @@ namespace DL
 
         public void AddBus(Bus bus)
         {
-           if( DataSource.listBus.FirstOrDefault(b => b.LicenseNum == bus.LicenseNum) != null)
-                    {
+            if (DataSource.listBus.FirstOrDefault(b => b.LicenseNum == bus.LicenseNum) != null)
+            {
                 throw new DO.OlreadtExistException("THIS BUS ALLREADY EXIST ");
-                     }
+            }
             DataSource.listBus.Add(bus);
         }
 
         public void AddLine(Line line)//לברר בדיוקק
         {
-            if (DataSource.listLine.FirstOrDefault(l => l.StationNum == line.StationNum 
-                             && l.FirstStation == line.FirstStation && l.LastStation == line.LastStation && l.Code==line.Code) != null)
+            if (DataSource.listLine.FirstOrDefault(l => l.StationNum == line.StationNum
+                             && l.FirstStation == line.FirstStation && l.LastStation == line.LastStation && l.Code == line.Code) != null)
             {
-                    throw new DO.OlreadtExistException("THIS LINE ALLREADY EXIST ");
+                throw new DO.OlreadtExistException("THIS LINE ALLREADY EXIST ");
             }
             DO.StaticRunNumbers.RUNNUMBERLineID++;
-             //UPDATA RUN NUMBER
+            //UPDATA RUN NUMBER
             line.ID = DO.StaticRunNumbers.RUNNUMBERLineID;
             DataSource.listLine.Add(line);
-            
+
         }
 
         public void AddStation(Station station)
@@ -98,9 +98,9 @@ namespace DL
             else throw new DO.NotExistException("THIS BUS DOSENT EXIST");
         }
 
-        public void DeleteLine(int code,AREA area)
+        public void DeleteLine(int code, AREA area)
         {
-            Line line = DataSource.listLine.Find(b => b.Code ==code && b.Area==area );
+            Line line = DataSource.listLine.Find(b => b.Code == code && b.Area == area);
             if (line != null)
             {
                 DataSource.listLine.Remove(line);
@@ -129,19 +129,34 @@ namespace DL
         }
         public void DeleteLineTrip(int lineCode)
         {
-            LineTrip lt = DataSource.listLineTrip.Find(b=>b.LineID== lineCode);
+            LineTrip lt = DataSource.listLineTrip.Find(b => b.LineID == lineCode);
             if (lt != null)
             { DataSource.listLineTrip.Remove(lt); }
             else throw new DO.NotExistException();
 
         }
+        public void DeleteLineStation(LineStation l)
+        {
+            LineStation a = DataSource.listLineStation.Find(x => x.lineCode == l.lineCode && x.Station == l.Station);
+            if (a != null)
+                DataSource.listLineStation.Remove(a);
+            else throw new DO.NotExistException();
+        }
+
+        public void DeleteAdjacentStations(AdjacentStations adjd)
+        {
+            AdjacentStations a = DataSource.listAdjacentStation.Find(x => x.Station1 == adjd.Station1 && x.Station2 == adjd.Station2 && x.lineCode == adjd.lineCode);
+            if (a != null) DataSource.listAdjacentStation.Remove(a);
+            else throw new DO.NotExistException();
+        }
+
         #endregion
 
         #region GetAll
         public IEnumerable<Bus> GetAllBuss()
         {
             return from bus in DataSource.listBus
-                   select bus.Clone();          
+                   select bus.Clone();
         }
 
         public IEnumerable<Bus> GetAllBusBy(Predicate<Bus> predicate)
@@ -168,7 +183,7 @@ namespace DL
         {
             return from person in DataSource.listStations
                    select person.Clone();
-           // throw new NotImplementedException();
+            // throw new NotImplementedException();
         }
 
         public IEnumerable<Station> GetAllStationsBy(Predicate<Station> predicate)
@@ -188,10 +203,10 @@ namespace DL
         public IEnumerable<Station> GetAllUsersBy(Predicate<User> predicate)
         {
             return (IEnumerable<Station>)(from user in DataSource.listUsers
-                   where predicate(user)
-                   select user.Clone());
+                                          where predicate(user)
+                                          select user.Clone());
         }
-         public IEnumerable<LineTrip> GetAllLineTrip()
+        public IEnumerable<LineTrip> GetAllLineTrip()
         {
             return from lp in DataSource.listLineTrip
                    select lp.Clone();
@@ -228,13 +243,13 @@ namespace DL
             else { throw new DO.NotExistException("THIS BUS DOSENT EXIST"); }//trhow
         }
 
-        public Line GetLine(int code,AREA area)
+        public Line GetLine(int code, AREA area)
         {
-            Line line = DataSource.listLine.Find(b => b.Code == code && b.Area==area);
+            Line line = DataSource.listLine.Find(b => b.Code == code && b.Area == area);
             if (line != null)
                 return line.Clone();
             else throw new DO.NotExistException("THIS LINE DOSENT EXIST");
-            
+
         }
         //public Line GetLine(int ID) 
         //{
@@ -257,7 +272,7 @@ namespace DL
             if (us != null)
                 return us.Clone();
             else throw new DO.NotExistException("THIS USER DOSENT EXIST");
-       
+
         }
 
         public LineTrip GetLineTrip(int lineId)
@@ -273,6 +288,13 @@ namespace DL
             if (a != null) return a.Clone();
             else throw new NotExistException();
         }
+        public AdjacentStations GetAdjacentStations(int codeStation1, int codeStation2, int lineCode)
+        {
+            AdjacentStations a = DataSource.listAdjacentStation.Find(x => x.Station1 == codeStation1 && x.Station2 == codeStation2 && x.lineCode == lineCode);
+            if (a != null) return a.Clone();
+            else throw new NotExistException();
+        }
+        
         #endregion
 
         #region Update

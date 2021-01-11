@@ -41,6 +41,7 @@ namespace BLAPI
         void updateSTATIONLINE(STATIONLINE L);
         DO.LineStation convertSTATIONLINEToLineStation(STATIONLINE SL, int lineID);
         void AddSTATIONLINE(STATIONLINE sl);
+        bool DeleteSTATIONLINE(STATIONLINE sl);
 
 
         //#region bus

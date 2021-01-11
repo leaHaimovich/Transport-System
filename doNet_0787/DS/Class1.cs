@@ -572,10 +572,11 @@ namespace DS
 
             listAdjacentStation = new List<AdjacentStations>
             {
-                new AdjacentStations{ Distance=10, Station1=73, Station2=76, Time=new TimeSpan(0,10,30)},
-                new AdjacentStations{ Distance=10, Station1=76, Station2=77, Time=new TimeSpan(0,10,30)},
-                new AdjacentStations{ Distance=10, Station1=73, Station2=33, Time=new TimeSpan(0,10,30)},
-                 new AdjacentStations{ Distance=12, Station1=73, Station2=32, Time=new TimeSpan(0,12,30)}
+                new AdjacentStations{ Distance=10, Station1=73, Station2=76, Time=new TimeSpan(0,10,30),lineCode=32},
+                new AdjacentStations{ Distance=10, Station1=76, Station2=77, Time=new TimeSpan(0,10,30),lineCode=32},
+                new AdjacentStations{ Distance=10, Station1=73, Station2=33, Time=new TimeSpan(0,10,30),lineCode=32},
+                 new AdjacentStations{ Distance=12, Station1=73, Station2=32, Time=new TimeSpan(0,12,30),lineCode=32},
+                  new AdjacentStations{ Distance=12, Station1=76, Station2=77, Time=new TimeSpan(0,12,30), lineCode=32}
             };
             listLineTrip = new List<LineTrip>
             {

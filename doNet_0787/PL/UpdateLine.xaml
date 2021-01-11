@@ -19,14 +19,18 @@
         <ComboBox x:Name="cmbArea" Grid.Column="2" HorizontalAlignment="Left" Margin="68,139,0,0" VerticalAlignment="Top" Width="133" SelectionChanged="cmbArea_SelectionChanged"/>
         <DataGrid x:Name="dataGridStationLINE" HorizontalAlignment="Left" Height="200" Margin="183,194,0,0" VerticalAlignment="Top" Width="490" Grid.ColumnSpan="3" ItemsSource="{Binding}" SelectionChanged="dataGridStationLINE_SelectionChanged">
             <DataGrid.Columns>
-                <DataGridTextColumn x:Name="stationCode" Header="מספר תחנה " Width="sizeToHeader" Binding="{Binding stationCode}"></DataGridTextColumn>
-                <DataGridTextColumn x:Name="stationName" Header="שם תחנה " Width="sizeToHeader" Binding="{Binding satationName}"/>
-                <DataGridTextColumn x:Name="Time" Header="זמן לתחנה הבאה" Width="sizeToHeader" Binding="{Binding Time}"></DataGridTextColumn>
-                <DataGridTextColumn x:Name="Distance" Header="זמן לתחנה הבאה " Width="sizeToHeader" Binding="{Binding Distance}"></DataGridTextColumn>
+                
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Button x:Name="btnUpdateStationLine" Content="עדכן תחנה" Click="btnUpdateStationLine_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="btnDeleteStationLine" Content="הסר תחנה" Click="btnDeleteStationLine_Click"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

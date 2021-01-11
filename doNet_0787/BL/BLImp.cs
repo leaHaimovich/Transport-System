@@ -111,7 +111,19 @@ namespace BL
         {
             throw new NotImplementedException();
         }
+        public bool  DeleteSTATIONLINE(STATIONLINE sl)
+        {
+            try
+            {
+                DO.LineStation l = dl.GetLineStation(sl.LineCode, sl.CodeStation);
+                dl.DeleteLineStation(l);
+                DO.AdjacentStations adj = dl.GetAdjacentStations(sl.CodeStation, sl.NextStation, sl.LineCode);
+                dl.DeleteAdjacentStations(adj);
+            }
+            catch { throw new NotExistException(); }
+            return true;
 
+        }
         public LINE ConvertLineToLINE(DO.Line l)
         {
             LINE L = new LINE();

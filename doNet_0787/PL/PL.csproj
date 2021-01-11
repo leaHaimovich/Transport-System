@@ -61,8 +61,6 @@
     <Compile Include="AddStationLine.xaml.cs">
       <DependentUpon>AddStationLine.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PO\linePO.cs" />
-    <Compile Include="PO\stationLinePO.cs" />
     <Compile Include="SHOWALL.xaml.cs">
       <DependentUpon>SHOWALL.xaml</DependentUpon>
     </Compile>

@@ -52,6 +52,18 @@ namespace PL
             AddStationLine a = new AddStationLine(bl, ln, stationlinechhosen, true);
             a.Show();
         }
+        
+        private void btnDeleteStationLine_Click(object sender, RoutedEventArgs e)//Delete Station Line
+        {
+            BO.STATIONLINE sld = (BO.STATIONLINE)dataGridStationLINE.SelectedItem ;
+            if (MessageBox.Show("?אתה בטוח שהינך רוצה למחוק תחנה זה", " מחיקת תחנת קו", MessageBoxButton.YesNo, MessageBoxImage.Question)
+               == MessageBoxResult.Yes)
+            {
+                try { bl.DeleteSTATIONLINE(sld); }
+                catch { MessageBox.Show("לא ניתן למחוק את התחנה, מכיון שהיא לא קיימת"); }
+            }
+            //לאתחל את הדטה גריד
+        }
        private void btnAddStationLine_Click(object sender, RoutedEventArgs e)
         {
             BO.STATIONLINE x = (BO.STATIONLINE)dataGridStationLINE.SelectedItem;
