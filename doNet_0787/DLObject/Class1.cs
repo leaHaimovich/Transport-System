@@ -230,6 +230,13 @@ namespace DL
                    where predicate(a)
                    select a.Clone();
         }
+        public IEnumerable<DO.Station> GetSortStations()
+        {
+            var v = from st in DataSource.listStations
+                    orderby st.Code
+                    select st;
+            return v;
+        }
         #endregion
 
         #region Get
@@ -348,7 +355,7 @@ namespace DL
             if (per != null)
             {
                 DataSource.listStations.Remove(per);
-                DataSource.listStations.Add(per.Clone());
+                DataSource.listStations.Add(Station.Clone());
             }
             else
                 throw new DO.NotExistException("THIS STATION DOSENT EXIST");

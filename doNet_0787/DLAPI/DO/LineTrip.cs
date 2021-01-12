@@ -9,7 +9,7 @@ namespace DO
    public  class LineTrip
     {
         public int ID { get; set; }//id
-        public int LineID { get; set; }//id of line//
+        public int LineID { get; set; }//id of line//codeeee
         public TimeSpan StartAt { get; set; }//Start Time
         public TimeSpan FinishAt { get; set; }//finish Time
         public TimeSpan Frequency { get; set; }//frequency

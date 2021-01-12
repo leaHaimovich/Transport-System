@@ -30,23 +30,29 @@ namespace PL
             InitializeComponent();
             wind = i;
             txtStationName.Text = S.StationName;
+            txtDistance.Text = Convert.ToString( S.Distance);
+            txtTimeHour.Text = Convert.ToString(S.Time.Hours);
+            txtTimeMiniute.Text = Convert.ToString(S.Time.Minutes);
+            txtTimeSecond .Text= Convert.ToString(S.Time.Seconds);
         }
 
         private void btnUpdateLineStation_Click(object sender, RoutedEventArgs e)
         {
             BO.STATIONLINE sl = new BO.STATIONLINE();
             sl.StationName = txtStationName.Text;
-            sl.Time = new TimeSpan(Convert.ToInt32(txtTimeHour.Text), Convert.ToInt32(txtTimeMiniute.Text), Convert.ToInt32(txtTimeSecond.Text));
+            sl.Time = new TimeSpan(Convert.ToInt32(txtTimeHour.Text), Convert.ToInt32(txtTimeMiniute.Text), Convert.ToInt32(txtTimeSecond.Text)); 
+            
             sl.Distance = Convert.ToDouble(txtDistance.Text);
             sl.CodeStation = stl.CodeStation;
-            sl.NextStation = stl.LineCode;
-            sl.LineCode = stl.LineCode;
-            sl.LineCode = stl.LineCode;
+            sl.NextStation = stl.NextStation;
+            sl.LineCode = stl.LineCode;           
+            //sl.LineCode = stl.LineCode;
             bl.updateSTATIONLINE(sl);
             if (wind == 1)
             {
-                SHOWALL a = new SHOWALL(bl);
-                a.Show();
+                this.Close();
+               // SHOWALL a = new SHOWALL(bl);
+                //a.Show();
             }
             if(wind==2)
             {

@@ -566,7 +566,14 @@ namespace DS
                 new LineStation{ lineCode=32,Station=73, LineStationIndex=1, NextStation=76, PrevStation=0},
                 new LineStation{ lineCode=32,Station=76, LineStationIndex=2, NextStation=77, PrevStation=73},
                 new LineStation{ lineCode=32,Station=77, LineStationIndex=3, NextStation=78, PrevStation=76},
-                new LineStation{ lineCode=32,Station=78, LineStationIndex=4, NextStation=83, PrevStation=77}
+                new LineStation{ lineCode=32,Station=78, LineStationIndex=4, NextStation=83, PrevStation=77},
+                new LineStation{ lineCode=32,Station=83, LineStationIndex=5, NextStation=84, PrevStation=78},
+                new LineStation{ lineCode=32,Station=84, LineStationIndex=6, NextStation=85, PrevStation=83},
+                new LineStation{ lineCode=32,Station=85, LineStationIndex=7, NextStation=86, PrevStation=84},
+                new LineStation{ lineCode=32,Station=86, LineStationIndex=8, NextStation=88, PrevStation=85},
+                new LineStation{ lineCode=32,Station=88, LineStationIndex=9, NextStation=89, PrevStation=86}
+
+
 
             };
 
@@ -574,9 +581,13 @@ namespace DS
             {
                 new AdjacentStations{ Distance=10, Station1=73, Station2=76, Time=new TimeSpan(0,10,30),lineCode=32},
                 new AdjacentStations{ Distance=10, Station1=76, Station2=77, Time=new TimeSpan(0,10,30),lineCode=32},
-                new AdjacentStations{ Distance=10, Station1=73, Station2=33, Time=new TimeSpan(0,10,30),lineCode=32},
-                 new AdjacentStations{ Distance=12, Station1=73, Station2=32, Time=new TimeSpan(0,12,30),lineCode=32},
-                  new AdjacentStations{ Distance=12, Station1=76, Station2=77, Time=new TimeSpan(0,12,30), lineCode=32}
+                new AdjacentStations{ Distance=5.5, Station1=77, Station2=78, Time=new TimeSpan(0,10,30),lineCode=32},
+                new AdjacentStations{ Distance=2, Station1=78, Station2=83, Time=new TimeSpan(0,1,30),lineCode=32},
+                new AdjacentStations{ Distance=6, Station1=83, Station2=84, Time=new TimeSpan(0,7,30),lineCode=32},
+                new AdjacentStations{ Distance=10, Station1=84, Station2=85, Time=new TimeSpan(0,6,30),lineCode=32},
+                new AdjacentStations{ Distance=10, Station1=85, Station2=86, Time=new TimeSpan(0,10,30),lineCode=32},
+                 new AdjacentStations{ Distance=12, Station1=86, Station2=88, Time=new TimeSpan(0,12,30),lineCode=32},
+                  new AdjacentStations{ Distance=12, Station1=88, Station2=89, Time=new TimeSpan(0,12,30), lineCode=32}
             };
             listLineTrip = new List<LineTrip>
             {

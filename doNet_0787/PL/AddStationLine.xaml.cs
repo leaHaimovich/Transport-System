@@ -56,9 +56,12 @@ namespace PL
             sl.LineCode = ln.Code;
             sl.Distance =Convert.ToDouble( txtDistance.Text);
             sl.Time = new TimeSpan(Convert.ToInt32(txtFinishAtHour.Text), Convert.ToInt32(txtFinishAtMiniute.Text), Convert.ToInt32(txtFinishAtSecond.Text));
-            bl.AddSTATIONLINE(sl);
-            SHOWALL sHOWALL = new SHOWALL(bl);
-            sHOWALL.Show();
+
+            try { bl.AddSTATIONLINE(sl); }
+            catch { MessageBox.Show("תחנה זאת כבר קיימת"); }
+            this.Close();
+           // SHOWALL sHOWALL = new SHOWALL(bl);
+            //sHOWALL.Show();
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

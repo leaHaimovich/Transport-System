@@ -35,12 +35,19 @@ namespace PL
 
         private void btnSaveNewLine_Click(object sender, RoutedEventArgs e)
         {
+            string err = " :נא הוסף את הפרטים הבאים";
+            bool mass = false;
+            if (txtLineCode.Text.Length == 0) { err += " מספר קו,"; mass = true; }
+            if (cmbLineArea.SelectedItem == null) { err += " איזור הקו,";mass = true; }
+            if (mass == true) { MessageBox.Show(err, "חסר פרטים"); return; }
+            
             BO.LINE newL = new BO.LINE();
             newL.Code = Convert.ToInt32(txtLineCode.Text);
            newL.Area = (BO.Emuns.AREA)(cmbLineArea.SelectedItem);
            newL.FinishAt = new TimeSpan(Convert.ToInt32(txtFinishAtHour.Text), Convert.ToInt32(txtFinishAtMiniute.Text), Convert.ToInt32(txtFinishAtSecond.Text));
            newL.StartAt = new TimeSpan(Convert.ToInt32(txtStartAtHour.Text), Convert.ToInt32(txtStartAtMiniute.Text), Convert.ToInt32(txtStartAtSecond.Text));
-            bl.AddLINE(newL);
+            try { bl.AddLINE(newL); }
+            catch { MessageBox.Show("ההוספה נכשלה"); }
             SHOWALL a = new SHOWALL(bl);
             a.Show();
         }

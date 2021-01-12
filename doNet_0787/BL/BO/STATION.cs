@@ -10,7 +10,7 @@ namespace BO
 {
     public class STATION
     {
-        public AREA are { get; set; }
+        public AREA area { get; set; }
         public int Code { get; set; }//station code
         public string Name { get; set; }//station name
        

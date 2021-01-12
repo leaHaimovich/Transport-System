@@ -1,0 +1,14 @@
+﻿<Window x:Class="PL.ManagerManue"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PL"
+        mc:Ignorable="d"
+        Title="ManagerManue" Height="450" Width="800">
+    <Grid>
+        <Button x:Name="btnLines" Content="ניהול קווים" HorizontalAlignment="Left" Margin="284,252,0,0" VerticalAlignment="Top" Width="197" Height="70" FontSize="24" FontWeight="Bold" Click="btnLines_Click"/>
+        <Button x:Name="btnStation" Content="ניהול תחנות" HorizontalAlignment="Left" Margin="289,136,0,0" VerticalAlignment="Top" Width="192" Height="70" FontSize="24" FontWeight="Bold" Click="btnStation_Click"/>
+
+    </Grid>
+</Window>

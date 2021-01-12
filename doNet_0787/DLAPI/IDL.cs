@@ -33,6 +33,7 @@ namespace dl
         #endregion
 
         #region Station
+        IEnumerable<DO.Station> GetSortStations();
         IEnumerable<Station> GetAllStations();
         IEnumerable<Station> GetAllStationsBy(Predicate<Station> predicate);
         public Station GetStation(int Code);

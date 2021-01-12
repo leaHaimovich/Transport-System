@@ -52,6 +52,28 @@ namespace BL
             catch { throw new NotExistExceptionBO(); }
           
         }
+       public IEnumerable<STATIONLINE> GetAllLineStationsByLineCode(int LineCode)
+        {
+          var v=dl.GetAllLineStationsBy(x => x.lineCode == LineCode);
+            return from a in v
+             select convertLineStationToSTATIONLINE(a);
+          //var v1= from a in dl.GetAllAdjacentStationsBy(x=>x.Station1==)
+
+        }
+        public STATIONLINE convertLineStationToSTATIONLINE(DO.LineStation l)
+        {
+            STATIONLINE s = new STATIONLINE();
+            s.CodeStation = l.Station;
+            s.LineCode = l.lineCode;
+            s.NextStation = l.NextStation;
+            s.StationName = dl.GetStation(l.Station).Name;
+            DO.AdjacentStations adj = dl.GetAllAdjacentStationsBy(x => x.Station1 == l.Station && x.Station2 == l.NextStation && x.lineCode == l.lineCode).FirstOrDefault();
+            s.Distance = adj.Distance;
+            s.Time = adj.Time;
+           
+
+            return s;
+        }
         public void AddLINE(LINE l)
         {
             DO.Line ld = new Line();
@@ -88,10 +110,32 @@ namespace BL
             catch { throw new OlreadtExistExceptionBO(); }
             }
         }
+        public IEnumerable<LINE> GetAllLinesPassByStation(int code)
+        {
+            var v = from ls in dl.GetAllLineStationsBy(p => p.Station == code)//
+                    select ls;
+            return from st in v
+                   from line in dl.GetAllLines()// 
+                   let linebo = line.CopyPropertiesToNew(typeof(BO.LINE)) as BO.LINE
+                   where st.lineCode== linebo.Code//שינתיייייייייייייייייייייייי לבדוקקק
+                   select linebo;
+
+        }
 
         public void AddSTATION(STATION newSTATION)
         {
-            throw new NotImplementedException();
+
+            DO.Station dostation = newSTATION.CopyPropertiesToNew(typeof(DO.Station)) as DO.Station;
+            try
+            {
+                dl.AddStation(dostation);
+            }
+            catch (DO.OlreadtExistException ex)
+            {
+                throw new BO.OlreadtExistExceptionBO("this station already exist", ex);
+            }
+
+           // throw new NotImplementedException();
         }
 
         public void DeleteLINE(int code, Emuns.AREA area)
@@ -109,6 +153,12 @@ namespace BL
 
         public void DeleteSTATION(int code)
         {
+            try
+            { dl.DeleteStation(code); }
+            catch (DO.NotExistException ex)
+            {
+                throw new BO.OlreadtExistExceptionBO("this station is not exist", ex);
+            }
             throw new NotImplementedException();
         }
         public bool  DeleteSTATIONLINE(STATIONLINE sl)
@@ -227,8 +277,46 @@ namespace BL
 
         public STATION GetSTATION(int code)
         {
-            throw new NotImplementedException();
+
+            DO.Station dostation = new DO.Station();
+            try
+            {
+                dostation = dl.GetStation(code);
+            }
+            catch (DO.NotExistException ex)
+            {
+                throw new BO.NotExistExceptionBO("station code does not exist ", ex);
+            }
+
+            BO.STATION st = new BO.STATION();
+            dostation.CopyPropertiesTo(st);
+            //throw new NotImplementedException();
+
+            st.LinesOnThisStation=
+            st.LinesOnThisStation = GetAllLinesPassByStation(st.Code);//קוראת לפונק שמחזירה רשימת קווים שעוברים בתחנה
+
+            IEnumerable<DO.AdjacentStations> adj = dl.GetAllAdjacentStations();
+
+            IEnumerable<BO.STATION> stat = GetALLSTATION();           
+            st.LinesAdjacentStations = from a in adj
+                                   from s in stat
+                                   where a.Station1 == st.Code
+                                   where a.Station2 == s.Code
+                                   select new BO.STATIONLINE { CodeStation = a.Station1, NextStation = a.Station2, Distance = a.Distance, Time = a.Time, StationName = s.Name };
+
+            return st;
         }
+        //public IEnumerable<BO.LINE> GetAllLinesPassByStation(int code)// מחזיר רשימת כל הקווים שעוברים בתחנה-קבלתי קוד תחנה
+        //{
+        //    var v = from ls in dl.GetAllLineStationsBy(p => p.Station == code)//
+        //            select ls;//
+        //    return from st in v
+        //           from line in dl.GetAllLines()// 
+        //           let linebo = line.CopyPropertiesToNew(typeof(BO.LINE)) as BO.LINE
+        //           where st.lineCode == linebo.Code//שינתיייייי
+        //           select linebo;
+
+        //}
         public IEnumerable<STATION> GetALLSTATION()
         {
             //מחזיר את רשימת כל התחנות הפיזיות 
@@ -277,7 +365,25 @@ namespace BL
 
         public void UpdateSTATION(STATION upstation)
         {
-            throw new NotImplementedException();
+
+            DO.Station dostation = upstation.CopyPropertiesToNew(typeof(DO.Station)) as DO.Station;
+
+            try
+            {
+                dl.UpdateStation(dostation);
+
+            }
+            catch (DO.NotExistException ex)
+            {
+                throw new BO.NotExistExceptionBO("station code does not exist ", ex);
+            }
+           
+        }
+        public IEnumerable<BO.STATION> GetSortStations()
+        {
+            return from station in dl.GetSortStations()
+                   let BOstation = station.CopyPropertiesToNew(typeof(BO.STATION)) as BO.STATION
+                   select BOstation;
         }
 
 

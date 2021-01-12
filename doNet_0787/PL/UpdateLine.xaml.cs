@@ -28,7 +28,9 @@ namespace PL
         public UpdateLine(IBL bl1,BO.LINE l)
         {
            bl = bl1;
-            ln = l;
+            //if (l != null)
+            ln = l; 
+            
             InitializeComponent();
             txtLineCode.Text =Convert.ToString( ln.Code);
             txtLineCode.IsEnabled = false;
@@ -44,13 +46,14 @@ namespace PL
                 btnAddFirstStationLine.Visibility = Visibility.Visible;
                 //btnAddFirstStationLine.IsEnabled = true;
             }
+            dataGridStationLINE.ItemsSource = bl.GetAllLineStationsByLineCode(ln.Code);
 
-           
         }
         private void btnAddFirstStationLine_Click(object sender, RoutedEventArgs e)
         {
             AddStationLine a = new AddStationLine(bl, ln, stationlinechhosen, true);
-            a.Show();
+            a.ShowDialog();
+            dataGridStationLINE.ItemsSource = bl.GetAllLineStationsByLineCode(ln.Code);
         }
         
         private void btnDeleteStationLine_Click(object sender, RoutedEventArgs e)//Delete Station Line
@@ -62,25 +65,29 @@ namespace PL
                 try { bl.DeleteSTATIONLINE(sld); }
                 catch { MessageBox.Show("לא ניתן למחוק את התחנה, מכיון שהיא לא קיימת"); }
             }
+            dataGridStationLINE.ItemsSource = bl.GetAllLineStationsByLineCode(ln.Code);
             //לאתחל את הדטה גריד
         }
        private void btnAddStationLine_Click(object sender, RoutedEventArgs e)
         {
             BO.STATIONLINE x = (BO.STATIONLINE)dataGridStationLINE.SelectedItem;
             stationlinechhosen = x;
+            try { 
             AddStationLine a = new AddStationLine(bl,ln,stationlinechhosen,false);
-            a.Show();
+            a.ShowDialog();
+            }
+            catch { MessageBox.Show("לא ניתן להוסיף את התחנה מכיון שהיא כבר קיימת"); }
+            dataGridStationLINE.ItemsSource = bl.GetAllLineStationsByLineCode(ln.Code);
         }
-        private void btnUpdateLine_Click(object sender, RoutedEventArgs e)
-        {
-            UpdateStationLine a = new UpdateStationLine(bl, (BO.STATIONLINE)dataGridStationLINE.SelectedItem,2);
-            a.Show();
-        }
+        
 
         private void btnUpdateStationLine_Click(object sender, RoutedEventArgs e)
         {
             UpdateStationLine a = new UpdateStationLine(bl, (BO.STATIONLINE)dataGridStationLINE.SelectedItem, 2);
-            a.Show();
+            a.ShowDialog();
+            DataContext = ln.StationListOfLine;
+            dataGridStationLINE.ItemsSource = bl.GetAllLineStationsByLineCode(ln.Code);
+
         }
 
         private void btnUpdataLine_Click(object sender, RoutedEventArgs e)
@@ -97,8 +104,10 @@ namespace PL
              // upli.StationListOfLine = FinalListStation;
             upli.StationListOfLine = ln.StationListOfLine;
             bl.UpdateLINE(upli);
-            SHOWALL sHOWALL = new SHOWALL(bl);
-            sHOWALL.Show();
+            this.Close();
+            
+            //SHOWALL sHOWALL = new SHOWALL(bl);
+            //sHOWALL.Show();
         }
 
         private void cmbArea_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -115,7 +124,10 @@ namespace PL
         {
 
             AddStationLine a = new AddStationLine(bl, ln, stationlinechhosen, true);
-            a.Show();
+            a.ShowDialog();
+            dataGridStationLINE.ItemsSource = bl.GetAllLineStationsByLineCode(ln.Code);
+            btnAddFirstStationLine.Visibility = Visibility.Hidden;
+
         }
     }
 }

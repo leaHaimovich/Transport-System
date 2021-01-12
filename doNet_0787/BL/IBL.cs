@@ -18,6 +18,7 @@ namespace BLAPI
         void DeleteLINE(int code, AREA area);
         void UpdateLINE(LINE upline);
         LINE ConvertLineToLINE(DO.Line l);
+        IEnumerable<LINE> GetAllLinesPassByStation(int code);
 
 
         //פונקציית עזר שהופכת מתחנה של בי לתחנת קו בדי
@@ -33,16 +34,18 @@ namespace BLAPI
         void AddSTATION(STATION newSTATION);
         void DeleteSTATION(int code);
         void UpdateSTATION(STATION upstation);
+        IEnumerable<BO.STATION> GetSortStations();
         #endregion
 
 
-
+        #region STATIONLINE
         STATIONLINE ConvertLineStationToSTATIONLINE(DO.LineStation ls, TimeSpan t, double dis, string name);
         void updateSTATIONLINE(STATIONLINE L);
         DO.LineStation convertSTATIONLINEToLineStation(STATIONLINE SL, int lineID);
         void AddSTATIONLINE(STATIONLINE sl);
         bool DeleteSTATIONLINE(STATIONLINE sl);
-
+        IEnumerable<STATIONLINE> GetAllLineStationsByLineCode(int LineCode);
+        #endregion
 
         //#region bus
         //BO.Bus1 GetBus1(int LicenseNum);

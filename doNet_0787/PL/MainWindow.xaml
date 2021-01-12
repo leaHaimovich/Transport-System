@@ -11,7 +11,7 @@
         <Label Content="Welcome to our Bus system! " HorizontalAlignment="Left" Margin="115,73,0,0" VerticalAlignment="Top" Height="41" Width="348" FontWeight="Bold" FontStyle="Italic" FontSize="20" Foreground="#FF1DBCD4"/>
         <GroupBox Header="Choose Option:" HorizontalAlignment="Left" Height="124" Margin="80,139,0,0" VerticalAlignment="Top" Width="166" FontSize="16" FontStyle="Italic" FontWeight="SemiBold">
             <StackPanel Margin="21,20,29,24">
-                <RadioButton x:Name ="rbUser" Content="User" Height="24" IsChecked="True"/>
+                <RadioButton x:Name ="rbUser" Content="User" Height="24" IsChecked="True" Checked="rbUser_Checked"/>
                 <RadioButton x:Name ="rbManagare" Content="Managare " Height="23" Margin="0,0,-11,0"/>
             </StackPanel>
         </GroupBox>

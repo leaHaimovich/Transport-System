@@ -1,0 +1,40 @@
+﻿<Window x:Class="PL.Stations"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PL"
+        mc:Ignorable="d"
+        Title="Stations" Height="450" Width="800">
+    <Grid>
+        <DataGrid x:Name="stationDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="327,10,9.6,162" ItemsSource="{Binding}" EnableRowVirtualization="True" AutoGenerateColumns="False" IsReadOnly="True" SelectedIndex="0" SelectionChanged="stationDataGrid_SelectionChanged"   >
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="codeStationColumn" Width="SizeToHeader" Header="Code Station" Binding="{Binding Code}"/>
+                <DataGridTextColumn x:Name="nameColumn" Width="50*" Header="Name" Binding="{Binding Name}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid x:Name="lineDataGrid"  AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="301,263,316.6,10" RowDetailsVisibilityMode="VisibleWhenSelected">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="areaColumn" Binding="{Binding area}" Header="area" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="codeColumn" Binding="{Binding Code}" Header="Code" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="lastStationColumn" Binding="{Binding LastStation}" Header="Last Station" Width="SizeToHeader"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid x:Name="lineStationDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="482,263,9.6,10" RowDetailsVisibilityMode="VisibleWhenSelected">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="distanceColumn" Binding="{Binding Distance}" Header="Distance" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="station2CodeColumn" Binding="{Binding Station2Code}" Header="Station 2 Code" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="stationNameColumn" Binding="{Binding stationName}" Header="station Name" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="timeColumn" Binding="{Binding Time}" Header="Time" Width="SizeToHeader"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content=": שם התחנה" HorizontalAlignment="Left" Margin="202,18,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Label Content=": קוד התחנה" HorizontalAlignment="Left" Margin="37,18,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <TextBox x:Name="txtStationName" HorizontalAlignment="Left" Height="44" Margin="202,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtStationCode" HorizontalAlignment="Left" Height="44" Margin="37,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="txtStationCode_TextChanged"/>
+        <Button x:Name="btnAddStation" Content=":הוספת תחנה" HorizontalAlignment="Left" Margin="82,143,0,0" VerticalAlignment="Top" Width="131" Height="52" FontSize="18" Click="btnAddStation_Click"/>
+        <Button x:Name="btnDeletStation" Content=": מחיקת תחנה" HorizontalAlignment="Right" Margin="0,226,580.6,0" VerticalAlignment="Top" Width="131" Height="54" FontSize="18" Click="btnDeletStation_Click"/>
+        <Button x:Name="btnUpdatStation" Content=": עדכון תחנה " HorizontalAlignment="Left" Margin="82,303,0,0" VerticalAlignment="Top" Width="131" Height="62" FontSize="18" Click="btnUpdatStation_Click"/>
+
+    </Grid>
+</Window>

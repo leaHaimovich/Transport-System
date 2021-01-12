@@ -37,8 +37,10 @@ namespace PL
             }
             else if (rbManagare.IsChecked == true)
             {
-                SHOWALL sHOWALL = new SHOWALL(bl);
-                sHOWALL.Show();
+                ManagerManue a = new ManagerManue(bl);
+                a.Show();
+               // SHOWALL sHOWALL = new SHOWALL(bl);
+                //sHOWALL.Show();
                 //LecturerWindow win = new LecturerWindow(bl);
                 //win.Show();
                 //  MessageBox.Show("This method is under construction!", "TBD", MessageBoxButton.OK, MessageBoxImage.Asterisk);
@@ -51,6 +53,11 @@ namespace PL
 
 
             }
+        }
+
+        private void rbUser_Checked(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
