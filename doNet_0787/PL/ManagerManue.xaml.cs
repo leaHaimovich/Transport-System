@@ -38,5 +38,32 @@ namespace PL
             Stations stations = new Stations(bl);
             stations.Show();
         }
+
+        
+
+        private void rbLines_Checked(object sender, RoutedEventArgs e)
+        {
+           
+        }
+
+        private void rbUser_Checked(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void btnGo_Click(object sender, RoutedEventArgs e)
+        {
+            if (rbLines.IsChecked == true)
+            {
+                SHOWALL sHOWALL = new SHOWALL(bl);
+                sHOWALL.Show();
+            }
+            if(rbStation.IsChecked==true)
+            {
+                Stations stations = new Stations(bl);
+                stations.Show();
+            }
+        }
     }
-}
+    }
+

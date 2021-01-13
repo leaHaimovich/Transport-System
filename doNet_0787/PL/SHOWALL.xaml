@@ -10,14 +10,7 @@
         <ListBox x:Name="lst" HorizontalAlignment="Left" Height="312" Margin="163,78,0,0" VerticalAlignment="Top" Width="157" ItemsSource="{Binding}" SelectionChanged="ListBox_SelectionChanged"/>
         <DataGrid x:Name="DatatGridLines" HorizontalAlignment="Left" ItemsSource="{Binding}" Height="312" Margin="325,78,0,0" VerticalAlignment="Top" Width="438" SelectionChanged="DatatGridLines_SelectionChanged" HorizontalContentAlignment="Right">
             <DataGrid.Columns>
-                <DataGridTextColumn x:Name="stationCode" Header="מספר תחנה " Width="sizeToHeader" Binding="{Binding stationCode}"></DataGridTextColumn>
-                <DataGridTextColumn x:Name="stationName" Header="שם תחנה " Width="sizeToHeader" Binding="{Binding satationName}"/>
-                <DataGridTextColumn x:Name="Time" Header="זמן לתחנה הבאה" Width="sizeToHeader" Binding="{Binding Time}"></DataGridTextColumn>
-                <DataGridTextColumn x:Name="Distance" Header="זמן לתחנה הבאה " Width="sizeToHeader" Binding="{Binding Distance}"></DataGridTextColumn>
-                <DataGridTextColumn x:Name="StationCode" Header="מספר תחנה" Width="sizeToHeader" Binding="{Binding  CodeStation}"></DataGridTextColumn>
-                <DataGridTextColumn x:Name="StationName" Header="שם התחנה"  Width="sizeToHeader" Binding="{Binding StationName}"/>
-                <DataGridTextColumn x:Name="DistanceBetWeenNextStation" Header="מרחק לתחנה הבאה"  Width="sizeToHeader" Binding="{Binding  Distance}"/>
-                <DataGridTextColumn x:Name="TimeBetweenNextStation" Header="זמן לתחנה הבאה" Width="sizeToHeader" Binding="{Binding Time}"/>
+                
                 <DataGridTemplateColumn>
                     
                     <DataGridTemplateColumn.CellTemplate>

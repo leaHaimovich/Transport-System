@@ -48,17 +48,7 @@ namespace PL
             sl.LineCode = stl.LineCode;           
             //sl.LineCode = stl.LineCode;
             bl.updateSTATIONLINE(sl);
-            if (wind == 1)
-            {
-                this.Close();
-               // SHOWALL a = new SHOWALL(bl);
-                //a.Show();
-            }
-            if(wind==2)
-            {
-                this.Close();
-                //UpdateLine c=new UpdateLine(bl,bl.GetLINE())
-            }
+            this.Close();
         }
     }
 }
