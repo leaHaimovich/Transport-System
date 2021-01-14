@@ -51,6 +51,7 @@ namespace PL
             a.ShowDialog();
             BO.LINE line1 = bl.GetLINE((lst.SelectedItem as BO.LINE).Code, (lst.SelectedItem as BO.LINE).Area);
             DatatGridLines.ItemsSource = bl.GetAllLineStationsByLineCode(line1.Code);
+            lst.DataContext = bl.GetAllLINES();
         }
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -113,8 +114,7 @@ namespace PL
            
                 BO.LINE l2 = (lst.SelectedItem) as BO.LINE;
                 UpdateLine update = new UpdateLine(bl, (lst.SelectedItem) as BO.LINE);
-                update.Show();
-
+                update.ShowDialog();
             DatatGridLines.ItemsSource = bl.GetAllLineStationsByLineCode(l2.Code);
             lst.DataContext = bl.GetAllLINES();
             // BO.LINE l=bl.GetLINE(lst.SelectedItema BO.LINE).Code, (lst.SelectedItem as BO.LINE).Area);
