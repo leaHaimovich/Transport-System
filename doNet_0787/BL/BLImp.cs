@@ -60,6 +60,29 @@ namespace BL
           //var v1= from a in dl.GetAllAdjacentStationsBy(x=>x.Station1==)
 
         }
+        public List<STATIONLINE> GetAllLineStationsByLineCodeByOrder(int LineCode)
+        {
+            IEnumerable<STATIONLINE> SL = GetAllLineStationsByLineCode(LineCode);
+            //List<STATIONLINE> SL = GetAllLineStationsByLineCode(LineCode).ToList();
+            List<STATIONLINE> l = new List<STATIONLINE>();
+            //IEnumerable<STATIONLINE> l = default;
+            //IEnumerable<STATIONLINE> l1 = from x in SL
+                                         //where ( x.NextStation == 0)
+                                         //select x;
+           STATIONLINE w = SL.FirstOrDefault((x=>x.NextStation==0));
+            l.Add(w);
+            while (w!=null)
+            {
+               STATIONLINE temp = SL.FirstOrDefault(x => x.NextStation == w.CodeStation);
+                //l1.ToList().Add(temp);
+            l.Add(temp);
+                w = temp;
+                }
+
+            l.Reverse();
+            l.RemoveAt(0);
+            return l;
+        }
         public STATIONLINE convertLineStationToSTATIONLINE(DO.LineStation l)
         {
             STATIONLINE s = new STATIONLINE();
@@ -121,7 +144,7 @@ namespace BL
                    select linebo;
 
         }
-
+        
         public void AddSTATION(STATION newSTATION)
         {
 

@@ -41,7 +41,7 @@
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button x:Name="btnAddStationLine" Content=" הוסף תחנה  " Click="btnAddStationLine_Click"/>
+                            <Button x:Name="btnAddStationLine" Content=" הוסף תחנה לפני  " Click="btnAddStationLine_Click"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

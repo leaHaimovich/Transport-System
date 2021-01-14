@@ -45,6 +45,7 @@ namespace BLAPI
         void AddSTATIONLINE(STATIONLINE sl);
         bool DeleteSTATIONLINE(STATIONLINE sl);
         IEnumerable<STATIONLINE> GetAllLineStationsByLineCode(int LineCode);
+        List<STATIONLINE> GetAllLineStationsByLineCodeByOrder(int LineCode);
         #endregion
 
         //#region bus

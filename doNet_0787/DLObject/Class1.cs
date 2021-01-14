@@ -29,7 +29,7 @@ namespace DL
         }
         public bool addLineStation(LineStation ls)
         {
-            if (DataSource.listLineStation.FirstOrDefault(b => b.LineID == ls.LineID && b.Station == ls.Station) != null)
+            if (DataSource.listLineStation.FirstOrDefault(b => b.LineID == ls.LineID && b.Station == ls.Station && b.lineCode==ls.lineCode) != null)
             {
                 throw new DO.OlreadtExistException("THIS BUS ALLREADY EXIST ");
             }

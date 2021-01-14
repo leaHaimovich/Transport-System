@@ -58,7 +58,10 @@ namespace PL
             if (lst.SelectedItem != null)
             {
                 BO.LINE l = bl.GetLINE((lst.SelectedItem as BO.LINE).Code, (lst.SelectedItem as BO.LINE).Area);
-                DatatGridLines.ItemsSource = bl.GetAllLineStationsByLineCode(l.Code);
+                //DatatGridLines.ItemsSource = bl.GetAllLineStationsByLineCode(l.Code);
+                IEnumerable<BO.STATIONLINE>  h = bl.GetAllLineStationsByLineCodeByOrder(l.Code);
+               
+                DatatGridLines.ItemsSource = h;
                 //DatatGridLines.ItemsSource= bl.GetALLSTATION().ToList();
                 //DatatGridLines.DataContext = l.StationListOfLine.ToList();
                 //DataContext = l.StationListOfLine.ToList();

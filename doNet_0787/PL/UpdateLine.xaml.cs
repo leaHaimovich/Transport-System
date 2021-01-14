@@ -77,7 +77,8 @@ namespace PL
             a.ShowDialog();
             }
             catch { MessageBox.Show("לא ניתן להוסיף את התחנה מכיון שהיא כבר קיימת"); }
-            dataGridStationLINE.ItemsSource = bl.GetAllLineStationsByLineCode(ln.Code);
+            //dataGridStationLINE.ItemsSource = bl.GetAllLineStationsByLineCode(ln.Code);
+            dataGridStationLINE.ItemsSource = bl.GetAllLineStationsByLineCodeByOrder(ln.Code);
         }
         
 

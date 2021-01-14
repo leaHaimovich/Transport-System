@@ -15,7 +15,7 @@
             </StackPanel>
         </GroupBox>
         <Button x:Name="btnGO" Content="GO" HorizontalAlignment="Left" Height="42" Margin="230,346,0,0" VerticalAlignment="Top" Width="105" Background="#FF4496CF" FontSize="16" FontFamily="Kristen ITC" FontWeight="Bold" Click="btnGo_Click"/>
-        <Label Content="welcom to our Bus system!!!!" HorizontalAlignment="Left" Margin="80,29,-90.4,0" VerticalAlignment="Top" Height="39" Width="584" FontSize="24" Foreground="#FF08C025" FontFamily="Snap ITC"/>
+        <Label Content="welcom to our Bus system!!!!" HorizontalAlignment="Left" Margin="80,29,-90.4,0" VerticalAlignment="Top" Height="39" Width="584" FontSize="24" Foreground="#FF0A309C" FontFamily="Snap ITC" Background="#FFFAFBFF"/>
 
     </Grid>
 </Window>

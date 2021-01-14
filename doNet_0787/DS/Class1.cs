@@ -571,9 +571,8 @@ namespace DS
                 new LineStation{ lineCode=32,Station=84, LineStationIndex=6, NextStation=85, PrevStation=83},
                 new LineStation{ lineCode=32,Station=85, LineStationIndex=7, NextStation=86, PrevStation=84},
                 new LineStation{ lineCode=32,Station=86, LineStationIndex=8, NextStation=88, PrevStation=85},
-                new LineStation{ lineCode=32,Station=88, LineStationIndex=9, NextStation=89, PrevStation=86}
-
-
+                new LineStation{ lineCode=32,Station=88, LineStationIndex=9, NextStation=89, PrevStation=86},
+                new LineStation{ lineCode=32,Station=89, LineStationIndex=10, NextStation=0, PrevStation=88 }
 
             };
 
@@ -587,7 +586,8 @@ namespace DS
                 new AdjacentStations{ Distance=10, Station1=84, Station2=85, Time=new TimeSpan(0,6,30),lineCode=32},
                 new AdjacentStations{ Distance=10, Station1=85, Station2=86, Time=new TimeSpan(0,10,30),lineCode=32},
                  new AdjacentStations{ Distance=12, Station1=86, Station2=88, Time=new TimeSpan(0,12,30),lineCode=32},
-                  new AdjacentStations{ Distance=12, Station1=88, Station2=89, Time=new TimeSpan(0,12,30), lineCode=32}
+                new AdjacentStations{ Distance=12, Station1=88, Station2=89, Time=new TimeSpan(0,12,30), lineCode=32},
+                 new AdjacentStations{ Distance=0, Station1=89, Station2=0, Time=new TimeSpan(0,0,0), lineCode=32}
             };
             listLineTrip = new List<LineTrip>
             {
