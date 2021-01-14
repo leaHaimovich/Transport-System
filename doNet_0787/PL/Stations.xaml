@@ -13,14 +13,14 @@
                 <DataGridTextColumn x:Name="nameColumn" Width="50*" Header="Name" Binding="{Binding Name}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <DataGrid x:Name="lineDataGrid"  AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="301,263,316.6,10" RowDetailsVisibilityMode="VisibleWhenSelected">
+        <DataGrid x:Name="lineDataGrid"  AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="251,303,316.6,10" RowDetailsVisibilityMode="VisibleWhenSelected">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="areaColumn" Binding="{Binding area}" Header="area" Width="SizeToHeader"/>
                 <DataGridTextColumn x:Name="codeColumn" Binding="{Binding Code}" Header="Code" Width="SizeToHeader"/>
                 <DataGridTextColumn x:Name="lastStationColumn" Binding="{Binding LastStation}" Header="Last Station" Width="SizeToHeader"/>
             </DataGrid.Columns>
         </DataGrid>
-        <DataGrid x:Name="lineStationDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="482,263,9.6,10" RowDetailsVisibilityMode="VisibleWhenSelected">
+        <DataGrid x:Name="lineStationDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="482,303,9.6,10" RowDetailsVisibilityMode="VisibleWhenSelected">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="distanceColumn" Binding="{Binding Distance}" Header="Distance" Width="SizeToHeader"/>
                 <DataGridTextColumn x:Name="station2CodeColumn" Binding="{Binding Station2Code}" Header="Station 2 Code" Width="SizeToHeader"/>
@@ -35,6 +35,8 @@
         <Button x:Name="btnAddStation" Content=":הוספת תחנה" HorizontalAlignment="Left" Margin="82,143,0,0" VerticalAlignment="Top" Width="131" Height="52" FontSize="18" Click="btnAddStation_Click"/>
         <Button x:Name="btnDeletStation" Content=": מחיקת תחנה" HorizontalAlignment="Right" Margin="0,226,580.6,0" VerticalAlignment="Top" Width="131" Height="54" FontSize="18" Click="btnDeletStation_Click"/>
         <Button x:Name="btnUpdatStation" Content=": עדכון תחנה " HorizontalAlignment="Left" Margin="82,303,0,0" VerticalAlignment="Top" Width="131" Height="62" FontSize="18" Click="btnUpdatStation_Click"/>
+        <Label Content="רשימת התחנות הצמודות של התחנה" HorizontalAlignment="Left" Margin="482,272,0,0" VerticalAlignment="Top" Width="284" FontSize="16"/>
+        <Label Content="רשימת הקוים שעוברים בתחנה" HorizontalAlignment="Left" Margin="251,272,0,0" VerticalAlignment="Top" Width="231" Height="32" FontSize="16"/>
 
     </Grid>
 </Window>
