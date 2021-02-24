@@ -43,7 +43,7 @@ namespace PL
                 }
                 int id =int.Parse( txtID.Text);
                 
-                string name = txtName.Text;
+                string name = txtpasswort.Text;
                 bool ismanager=bl.isManagerB(id, name);
                 if (ismanager)
                 {

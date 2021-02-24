@@ -10,7 +10,7 @@ namespace BO
     {
         public enum AREA
         {
-            GENERAL, NORTH, SOUTH, EAET, WEST, GUSH_DAN, CENTER
+            GENERAL, NORTH, SOUTH, EAET, WEST, GUSH_DAN, CENTER,YERUSALEM
         }
     }
 }

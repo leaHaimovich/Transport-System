@@ -17,9 +17,9 @@
         <Button x:Name="btnGO" Content="GO" HorizontalAlignment="Left" Height="42" Margin="230,346,0,0" VerticalAlignment="Top" Width="105" Background="#FF4496CF" FontSize="16" FontFamily="Kristen ITC" FontWeight="Bold" Click="btnGo_Click"/>
         <Label Content="welcom to our Bus system!!!!" HorizontalAlignment="Left" Margin="80,29,-90.4,0" VerticalAlignment="Top" Height="39" Width="584" FontSize="24" Foreground="#FF0A309C" FontFamily="Snap ITC" Background="#FFFAFBFF"/>
         <Label Content="ID:" HorizontalAlignment="Left" Margin="458,124,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <Label Content="Name" HorizontalAlignment="Left" Margin="458,189,0,0" VerticalAlignment="Top" FontSize="20" Width="81"/>
+        <Label Content="passwort" HorizontalAlignment="Left" Margin="458,189,0,0" VerticalAlignment="Top" FontSize="20" Width="81"/>
         <TextBox x:Name="txtID" HorizontalAlignment="Left" Height="32" Margin="316,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
-        <TextBox x:Name="txtName" HorizontalAlignment="Left" Height="32" Margin="316,194,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtpasswort" HorizontalAlignment="Left" Height="32" Margin="316,194,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Window>
