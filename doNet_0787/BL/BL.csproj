@@ -47,8 +47,10 @@
     <Compile Include="BO\Emuns.cs" />
     <Compile Include="BO\ExceptionBO.cs" />
     <Compile Include="BO\LINE.cs" />
+    <Compile Include="BO\LINETRIP.cs" />
     <Compile Include="BO\STATION.cs" />
     <Compile Include="BO\STATIONLINE.cs" />
+    <Compile Include="BO\USER.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="DeepCopyUtilities.cs" />
     <Compile Include="IBL.cs" />

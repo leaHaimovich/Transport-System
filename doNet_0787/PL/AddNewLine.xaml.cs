@@ -21,8 +21,10 @@ namespace PL
     public partial class AddNewLine : Window
     {
         IBL bl;
-        public AddNewLine( IBL bl1)
+        bool isManager;
+        public AddNewLine( IBL bl1,bool ismang)
         {
+            isManager = ismang;
             bl = bl1;
             InitializeComponent();
             cmbLineArea.ItemsSource = Enum.GetValues(typeof(BO.Emuns.AREA));
@@ -48,7 +50,7 @@ namespace PL
            newL.StartAt = new TimeSpan(Convert.ToInt32(txtStartAtHour.Text), Convert.ToInt32(txtStartAtMiniute.Text), Convert.ToInt32(txtStartAtSecond.Text));
             try { bl.AddLINE(newL); }
             catch { MessageBox.Show("ההוספה נכשלה"); }
-            SHOWALL a = new SHOWALL(bl);
+            SHOWALL a = new SHOWALL(bl, isManager);
             a.Show();
         }
     }

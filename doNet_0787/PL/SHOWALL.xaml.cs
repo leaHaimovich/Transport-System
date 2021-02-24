@@ -22,8 +22,10 @@ namespace PL
     {
         IBL bl;
         BO.LINE line;
-        public SHOWALL(IBL bl1)
+        bool isManager;
+        public SHOWALL(IBL bl1, bool ismang)
         {
+            isManager = ismang;
             bl = bl1;
             InitializeComponent();
             DatatGridLines.IsReadOnly = true;
@@ -35,6 +37,14 @@ namespace PL
                 line = l;
             }
            // btnLines.IsEnabled = false;
+           if(isManager==false)
+            {
+                btnAddLine.IsEnabled = false;
+                btnDeleteLine.IsEnabled = false;
+                btnUpdateLine.IsEnabled = false;
+                
+            }
+            cmbshowlines.ItemsSource = Enum.GetValues(typeof(BO.Emuns.AREA));
         }
 
        
@@ -45,6 +55,7 @@ namespace PL
         }
         private void btnUpdateStationLine_Click(object sender, RoutedEventArgs e)//פונקצציה לעידכון תחנת קו
         {
+            if (!isManager) return;
            // UpdateStationLine a = new UpdateStationLine(bl);
             BO.STATIONLINE z= (BO.STATIONLINE)DatatGridLines.SelectedItem;
             UpdateStationLine a = new UpdateStationLine(bl,z,1);
@@ -79,12 +90,12 @@ namespace PL
 
         private void DatatGridLines_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            
         }
 
         private void btnAddLine_Click(object sender, RoutedEventArgs e)
         {
-            AddNewLine a = new AddNewLine(bl);
+            AddNewLine a = new AddNewLine(bl,isManager);
             a.Show();
         }
 
@@ -123,6 +134,19 @@ namespace PL
             DatatGridLines.ItemsSource = default;
           //  DatatGridLines.ItemsSource = bl.GetAllLineStationsByLineCode(l2.Code);
 
+        }
+
+        private void cmbshowlines_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            BO.Emuns.AREA a = (BO.Emuns.AREA)(cmbshowlines.SelectedItem);
+          
+            List<BO.LINE> w1 =new List<BO.LINE>();
+            List<BO.LINE> L= bl.GetAllLINES().ToList();
+            for (int i=0;i<L.Count;i++)
+            {
+                if (L[i].Area == a) w1.Add(L[i]);
+            }
+            lst.DataContext = w1;
         }
     }
 }

@@ -51,6 +51,7 @@ namespace dl
         public void DeleteUser(int ID);//delete Station
         public void UpdateUser(User user);
         public void UpdateUser(int ID, Action<User> update);
+        public bool isManager(User user);
         #endregion
 
         #region LineStation
@@ -66,8 +67,9 @@ namespace dl
 
         #region LineTrip
         void AddLineTrip(LineTrip lp);
-        void DeleteLineTrip(int lineId);
+        bool DeleteLineTrip(int lineId, TimeSpan s);
         LineTrip GetLineTrip(int lineId);
+        LineTrip GetLineTripByLineIDAndStartAt(int lineId, TimeSpan s);
         IEnumerable<LineTrip> GetAllLineTrip();
         IEnumerable<LineTrip> GetAllLineTripsBy(Predicate<LineTrip> predicate);
         #endregion
@@ -80,9 +82,6 @@ namespace dl
         AdjacentStations GetAdjacentStations(int codeStation1, int codeStation2, int lineCode);
         void DeleteAdjacentStations(AdjacentStations adjd);
         #endregion
-        //#region AdjacentStations
-        //public void SetDistance(double distance, int station1Code, int station2Code);
-        //public void SetTime(TimeSpan t, int station1Code, int station2Code);
-        //#endregion
+       
     }
 }

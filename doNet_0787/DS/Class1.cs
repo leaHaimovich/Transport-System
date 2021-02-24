@@ -562,7 +562,8 @@ namespace DS
             DO.StaticRunNumbers.RUNNUMBERLineID += 10;
 
             listLineStation = new List<LineStation>
-            {
+            { 
+                #region Initialize station lines  איתחול תחנות קו//
                 new LineStation{ lineCode=32,Station=73, LineStationIndex=1, NextStation=76, PrevStation=0},
                 new LineStation{ lineCode=32,Station=76, LineStationIndex=2, NextStation=77, PrevStation=73},
                 new LineStation{ lineCode=32,Station=77, LineStationIndex=3, NextStation=78, PrevStation=76},
@@ -573,11 +574,12 @@ namespace DS
                 new LineStation{ lineCode=32,Station=86, LineStationIndex=8, NextStation=88, PrevStation=85},
                 new LineStation{ lineCode=32,Station=88, LineStationIndex=9, NextStation=89, PrevStation=86},
                 new LineStation{ lineCode=32,Station=89, LineStationIndex=10, NextStation=0, PrevStation=88 }
-
+                 #endregion
             };
 
             listAdjacentStation = new List<AdjacentStations>
             {
+                 #region Initialize AdjacentStations
                 new AdjacentStations{ Distance=10, Station1=73, Station2=76, Time=new TimeSpan(0,10,30),lineCode=32},
                 new AdjacentStations{ Distance=10, Station1=76, Station2=77, Time=new TimeSpan(0,10,30),lineCode=32},
                 new AdjacentStations{ Distance=5.5, Station1=77, Station2=78, Time=new TimeSpan(0,10,30),lineCode=32},
@@ -588,19 +590,29 @@ namespace DS
                  new AdjacentStations{ Distance=12, Station1=86, Station2=88, Time=new TimeSpan(0,12,30),lineCode=32},
                 new AdjacentStations{ Distance=12, Station1=88, Station2=89, Time=new TimeSpan(0,12,30), lineCode=32},
                  new AdjacentStations{ Distance=0, Station1=89, Station2=0, Time=new TimeSpan(0,0,0), lineCode=32}
+
+               #endregion
             };
             listLineTrip = new List<LineTrip>
             {
-                new LineTrip{ ID=1, LineID=1, StartAt=new TimeSpan(7,0,0), FinishAt=new TimeSpan(10,30,0), Frequency=new TimeSpan(0,30,0)},
+              #region initalize LineTrip
+                new LineTrip{ ID=1, LineID=55, StartAt=new TimeSpan(7,0,0), FinishAt=new TimeSpan(10,30,0), Frequency=new TimeSpan(0,30,0)},
                 new LineTrip{ ID=2, LineID=2, StartAt=new TimeSpan(7,30,0), FinishAt=new TimeSpan(23,30,0), Frequency=new TimeSpan(0,30,0)},
                 new LineTrip{ ID=3, LineID=3, StartAt=new TimeSpan(8,0,0), FinishAt=new TimeSpan(22,30,0), Frequency=new TimeSpan(0,20,0)},
                 new LineTrip{ ID=4, LineID=4, StartAt=new TimeSpan(7,0,0), FinishAt=new TimeSpan(10,30,0), Frequency=new TimeSpan(0,30,0)},
                 new LineTrip{ ID=5, LineID=5, StartAt=new TimeSpan(7,0,0), FinishAt=new TimeSpan(10,30,0), Frequency=new TimeSpan(0,30,0)},
-                new LineTrip{ ID=6, LineID=6, StartAt=new TimeSpan(7,0,0), FinishAt=new TimeSpan(10,30,0), Frequency=new TimeSpan(0,30,0)},
-                new LineTrip{ ID=7, LineID=7, StartAt=new TimeSpan(7,0,0), FinishAt=new TimeSpan(10,30,0), Frequency=new TimeSpan(0,30,0)},
-                new LineTrip{ ID=8, LineID=8, StartAt=new TimeSpan(7,0,0), FinishAt=new TimeSpan(10,30,0), Frequency=new TimeSpan(0,30,0)},
+                new LineTrip{ ID=6, LineID=55, StartAt=new TimeSpan(7,0,0), FinishAt=new TimeSpan(10,30,0), Frequency=new TimeSpan(0,30,0)},
+                new LineTrip{ ID=7, LineID=32, StartAt=new TimeSpan(7,0,0), FinishAt=new TimeSpan(10,30,0), Frequency=new TimeSpan(0,30,0)},
+                new LineTrip{ ID=8, LineID=55, StartAt=new TimeSpan(7,0,0), FinishAt=new TimeSpan(10,30,0), Frequency=new TimeSpan(0,30,0)},
                 new LineTrip{ ID=9, LineID=55, StartAt=new TimeSpan(7,0,0), FinishAt=new TimeSpan(10,30,0), Frequency=new TimeSpan(0,30,0)},
                 new LineTrip{ ID=10, LineID=32, StartAt=new TimeSpan(7,0,0), FinishAt=new TimeSpan(10,30,0), Frequency=new TimeSpan(0,30,0)}
+              #endregion
+            };
+
+            listUsers = new List<User>
+            {
+                new User{ID=123456789, UserName="avi cohen", Admit=true},
+                new User{ID=324240787, Admit=false, UserName="lea haimovich"}
             };
         }
 

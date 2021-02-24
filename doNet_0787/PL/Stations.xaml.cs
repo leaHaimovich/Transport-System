@@ -21,12 +21,21 @@ namespace PL
     public partial class Stations : Window
     {
         IBL bl;
+        bool isManager;
         public BO.STATION bs = new BO.STATION();
-        public Stations(IBL bl1)
+        public Stations(IBL bl1,bool ismang)
         {
+            isManager = ismang;
             bl = bl1;
             InitializeComponent();
             stationDataGrid.ItemsSource = bl.GetALLSTATION();
+
+            if(!isManager)
+            {
+                btnAddStation.IsEnabled = false;
+                btnDeletStation.IsEnabled = false;
+                btnUpdatStation.IsEnabled = false;
+            }
         }
 
         private void stationDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)

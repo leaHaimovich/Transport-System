@@ -58,6 +58,9 @@
     <Compile Include="AddNewLine.xaml.cs">
       <DependentUpon>AddNewLine.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AddScachel.xaml.cs">
+      <DependentUpon>AddScachel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AddStation.xaml.cs">
       <DependentUpon>AddStation.xaml</DependentUpon>
     </Compile>
@@ -66,6 +69,9 @@
     </Compile>
     <Compile Include="ManagerManue.xaml.cs">
       <DependentUpon>ManagerManue.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="scachel.xaml.cs">
+      <DependentUpon>scachel.xaml</DependentUpon>
     </Compile>
     <Compile Include="SHOWALL.xaml.cs">
       <DependentUpon>SHOWALL.xaml</DependentUpon>
@@ -80,6 +86,10 @@
       <DependentUpon>UpdateStationLine.xaml</DependentUpon>
     </Compile>
     <Page Include="AddNewLine.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddScachel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -111,6 +121,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="ManagerManue.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="scachel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -17,6 +17,33 @@ namespace BL
     {
         IDL dl = DLFactory.GetDL();
 
+
+        #region LINETRIP
+        public LINETRIP GetLineTrip(int lineID, TimeSpan startat)
+        {
+           DO.LineTrip a= dl.GetLineTripByLineIDAndStartAt(lineID, startat);
+            LINETRIP l = new LINETRIP { StartAt = a.StartAt, LineID = a.LineID, LineTripID = a.ID };
+            return l;
+        }
+        public IEnumerable<LINETRIP> getAllLineTripOfOneLine(int lineID)
+        {
+            IEnumerable<LINETRIP> l = from ls in dl.GetAllLineTripsBy(a => a.LineID == lineID)
+                                      let b = ls.CopyPropertiesToNew(typeof(BO.LINETRIP)) as BO.LINETRIP
+                                      select b;
+            return l;
+        }
+        public void UpdateLINETRIP(LINETRIP upLineTrip) { }
+        public void DeleteLINETRIP(int lineID, TimeSpan startat) 
+        {
+            dl.DeleteLineTrip(lineID, startat);
+        }
+        public void AddLINETRIP(int lineID, TimeSpan startat)
+        {
+           DO.StaticRunNumbers.RUNNUMBERBusOnTripID++;
+            LineTrip l = new LineTrip { ID = DO.StaticRunNumbers.RUNNUMBERBusOnTripID, LineID = lineID, StartAt = startat };
+            dl.AddLineTrip(l);
+        }
+        #endregion
         public LineStation ConvertSTATIONToLineStation(STATIONLINE S, int LineID)// Convert STATION To  Line Station
         {
             DO.LineStation ls = new LineStation();
@@ -82,7 +109,7 @@ namespace BL
             l.Reverse();
             l.RemoveAt(0);
             return l;
-        }
+        }//Get All Line Stations By Line Code By Order
         public STATIONLINE convertLineStationToSTATIONLINE(DO.LineStation l)
         {
             STATIONLINE s = new STATIONLINE();
@@ -169,8 +196,13 @@ namespace BL
             DO.Line a = dl.GetLine(c, (Line.AREA)ar);
             try { dl.DeleteLine(l.Code, (Line.AREA)l.Area); }
             catch { throw new NotExistExceptionBO(); }
-                    
-            dl.DeleteLineTrip(a.Code);
+
+            IEnumerable<LINETRIP> h = getAllLineTripOfOneLine(a.Code);
+           
+            var v= from d in h
+             select dl.DeleteLineTrip(d.LineID,d.StartAt);
+
+           // dl.DeleteLineTrip(a.Code);
             
         }
 
@@ -409,6 +441,14 @@ namespace BL
                    select BOstation;
         }
 
+
+        #region user
+        public bool isManagerB(int id, string name)//checking if the user is manager
+        {
+            DO.User u1 = new DO.User { ID = id, UserName = name };
+            return dl.isManager(u1);
+        }
+        #endregion
 
 
         //#region bus

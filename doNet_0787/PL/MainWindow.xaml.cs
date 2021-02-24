@@ -31,14 +31,29 @@ namespace PL
             
             if (rbUser.IsChecked == true)
             {
-                
-                //StudentWindow win = new StudentWindow(bl);
-                //win.Show();
+                ManagerManue a = new ManagerManue(bl, false);
+                a.Show();
             }
             else if (rbManagare.IsChecked == true)
             {
-                ManagerManue a = new ManagerManue(bl);
-                a.Show();
+                if (txtID.Text == "")
+                {
+                    MessageBox.Show("כדי להיכנס להרשאת מנהל עליך להזין תעודת זהות");
+                    return;
+                }
+                int id =int.Parse( txtID.Text);
+                
+                string name = txtName.Text;
+                bool ismanager=bl.isManagerB(id, name);
+                if (ismanager)
+                {
+                    ManagerManue a = new ManagerManue(bl, ismanager);
+                    a.Show();
+                }
+                else
+                {
+                    MessageBox.Show("אין לך הרשאת גישה");
+                }
                // SHOWALL sHOWALL = new SHOWALL(bl);
                 //sHOWALL.Show();
                 //LecturerWindow win = new LecturerWindow(bl);
@@ -56,6 +71,11 @@ namespace PL
         }
 
         private void rbUser_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }

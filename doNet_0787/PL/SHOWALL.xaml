@@ -10,12 +10,12 @@
         <ListBox x:Name="lst" HorizontalAlignment="Left" Height="312" Margin="163,78,0,0" VerticalAlignment="Top" Width="157" ItemsSource="{Binding}" SelectionChanged="ListBox_SelectionChanged"/>
         <DataGrid x:Name="DatatGridLines" HorizontalAlignment="Left" ItemsSource="{Binding}" Height="312" Margin="325,78,0,0" VerticalAlignment="Top" Width="438" SelectionChanged="DatatGridLines_SelectionChanged" HorizontalContentAlignment="Right">
             <DataGrid.Columns>
-                
+
                 <DataGridTemplateColumn>
-                    
+
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button x:Name="btnUpdateStationLine" Content="עדכן תחנה" Click="btnUpdateStationLine_Click"/>
+                            <Button x:Name="btnUpdateStationLine" Content="עדכן תחנה" Click="btnUpdateStationLine_Click" IsEnabled="True"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -27,6 +27,8 @@
         <Button x:Name="btnUpdateLine" Content="עידכון קו" HorizontalAlignment="Left" Margin="794,135,0,0" VerticalAlignment="Top" Width="120" FontSize="18" Click="btnUpdateLine_Click"/>
         <Label Content="מספר קו" HorizontalAlignment="Left" Margin="163,39,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.423,0.762" FontSize="18"/>
         <Label Content="איזור" HorizontalAlignment="Left" Margin="264,39,0,0" VerticalAlignment="Top" Width="57" FontSize="18"/>
+        <ComboBox x:Name="cmbshowlines" HorizontalAlignment="Left" Margin="10,161,0,0" VerticalAlignment="Top" Width="148" Height="47" SelectionChanged="cmbshowlines_SelectionChanged"/>
+        <Label Content="תצוגת קווים&#xD;&#xA; לפי איזור" HorizontalAlignment="Left" Margin="38,78,0,0" VerticalAlignment="Top" Height="74" Width="125" FontSize="20"/>
 
 
     </Grid>

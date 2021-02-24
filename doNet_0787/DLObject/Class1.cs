@@ -38,7 +38,7 @@ namespace DL
         }
         public void AddLineTrip(LineTrip lp)
         {
-            if (DataSource.listLineTrip.FirstOrDefault(b => b.ID == lp.ID) != null)
+            if (DataSource.listLineTrip.FirstOrDefault(b => b.LineID == lp.LineID && b.StartAt==lp.StartAt) != null)
             {
                 throw new DO.OlreadtExistException("THIS BUS ALLREADY EXIST ");
             }
@@ -127,12 +127,15 @@ namespace DL
             }
             else throw new DO.NotExistException("THIS USER DOSENT EXIST");
         }
-        public void DeleteLineTrip(int lineCode)
+        public bool DeleteLineTrip(int lineCode, TimeSpan s)
         {
-            LineTrip lt = DataSource.listLineTrip.Find(b => b.LineID == lineCode);
+            LineTrip lt = DataSource.listLineTrip.Find(b => b.LineID == lineCode && b.StartAt==s);
             if (lt != null)
-            { DataSource.listLineTrip.Remove(lt); }
+            { DataSource.listLineTrip.Remove(lt);
+                return true;
+            }
             else throw new DO.NotExistException();
+            return false;
 
         }
         public void DeleteLineStation(LineStation l)
@@ -289,6 +292,13 @@ namespace DL
                 return st.Clone();
             else throw new DO.NotExistException("THIS LineTrip DOSENT EXIST");//trhow
         }
+        public LineTrip GetLineTripByLineIDAndStartAt(int lineId, TimeSpan start)//Get Line Trip By LineID And StartAt
+        {
+            LineTrip st = DataSource.listLineTrip.Find(s => s.LineID == lineId && s.StartAt == start);
+            if (st != null)
+                return st.Clone();
+            else throw new DO.NotExistException("THIS LineTrip DOSENT EXIST");//trhow
+        }
         public LineStation GetLineStation(int lineCode1, int StationCode)
         {
             LineStation a = DataSource.listLineStation.Find(x => x.lineCode == lineCode1 && x.Station == StationCode);
@@ -431,16 +441,12 @@ namespace DL
         }
         #endregion
 
-        //#region set
-        //public void SetDistance(double distance, int station1Code, int station2Code)
-        //{
-
-        //}
-        //public void SetTime(TimeSpan t, int station1Code, int station2Code)
-        //{
-
-        //}
-        //#endregion
+        public bool isManager(User user)
+        {
+            if (DataSource.listUsers.FirstOrDefault(u => u.ID == user.ID && u.Admit==true) != null   )
+                return true;
+            return false;
+        }
 
     }
 }

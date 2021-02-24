@@ -7,10 +7,13 @@
         mc:Ignorable="d"
         Title="ManagerManue" Height="450" Width="800">
     <Grid>
-        <GroupBox Header="Choose Option:" HorizontalAlignment="Left" Height="190" Margin="190,107,0,0" VerticalAlignment="Top" Width="290" FontSize="20" FontStyle="Italic" FontWeight="SemiBold" Foreground="#FF19913D" >
+        <GroupBox Header="Choose Option:" HorizontalAlignment="Left" Height="234" Margin="175,112,0,0" VerticalAlignment="Top" Width="292" FontSize="20" FontStyle="Italic" FontWeight="SemiBold" Foreground="#FF19913D" >
             <StackPanel Margin="21,20,29,24">
                 <RadioButton x:Name ="rbStation" Content="Stations" Height="60" IsChecked="True" Checked="rbUser_Checked" FontSize="24" Foreground="#FF1DA91F"/>
                 <RadioButton x:Name ="rbLines" Content="Lines" Height="50" Margin="0,0,-11,0" FontSize="24" Checked="rbLines_Checked" Foreground="#FF1BAD1D"/>
+                <RadioButton x:Name ="rbscachel" Content="Line scachel" Height="50" Margin="0,0,-11,0" FontSize="24" Checked="rbscachel_Checked" Foreground="#FF1BAD1D">
+                   
+                </RadioButton>
             </StackPanel>
         </GroupBox>
         <Button x:Name="btnGo" Content="GO" HorizontalAlignment="Left" Margin="300,351,0,0" VerticalAlignment="Top" Width="141" Height="59" FontSize="36" FontWeight="Bold" Click="btnGo_Click" Foreground="#FF21B949" Background="White"/>

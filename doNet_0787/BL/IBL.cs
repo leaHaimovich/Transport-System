@@ -10,6 +10,19 @@ namespace BLAPI
 {
     public interface IBL
     {
+        #region LINETRIP
+        LINETRIP GetLineTrip(int lineID, TimeSpan startat);
+        IEnumerable<LINETRIP> getAllLineTripOfOneLine(int lineID);
+        void UpdateLINETRIP(LINETRIP upLineTrip);
+        void DeleteLINETRIP(int lineID, TimeSpan startat);
+        void AddLINETRIP(int lineID, TimeSpan startat);
+        #endregion
+
+
+        #region USER
+        bool isManagerB(int id, string name);//checking if the user is manager
+        #endregion
+
 
         #region LINE
         LINE GetLINE(int code, AREA area);
